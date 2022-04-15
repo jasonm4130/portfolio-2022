@@ -4,8 +4,8 @@
   user-select: none;
 
   .line {
-    fill: none;
     transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    fill: none;
     stroke: var(--font-colour);
     stroke-width: 5.5;
     stroke-linecap: round;

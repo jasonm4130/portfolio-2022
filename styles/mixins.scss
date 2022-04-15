@@ -1,11 +1,8 @@
 @mixin reset-button {
-  border: none;
+  width: auto;
   margin: 0;
   padding: 0;
-  width: auto;
   overflow: visible;
-
-  background: transparent;
 
   /* inherit font & color from ancestor */
   color: inherit;
@@ -13,11 +10,13 @@
 
   /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
   line-height: normal;
+  background: transparent;
+  border: none;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
 
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
-
-  /* Corrects inability to style clickable `input` types in iOS */
-  -webkit-appearance: none;
 }

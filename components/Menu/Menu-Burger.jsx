@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   burgerIcon,
   burgerIconActive,
@@ -32,3 +33,7 @@ export default function MenuBurger({ isOpen }) {
     </svg>
   );
 }
+
+MenuBurger.propTypes = {
+  isOpen: PropTypes.bool,
+};

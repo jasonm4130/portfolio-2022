@@ -2,39 +2,38 @@
 @import "../../styles/breakpoints.scss";
 
 .mainNav {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
 
   &Wrapper {
   }
 
   &List {
-    list-style: none;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 0;
-    flex-direction: column;
-    order: 2;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
     position: absolute;
     top: 100%;
-    background: var(--bg-colour);
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    order: 2;
     width: 100%;
     height: calc(100vh - 100%);
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+    background: var(--bg-colour);
+    transition: max-height 0.4s ease-in-out;
     @include media-tablet-up {
-      flex-direction: row;
-      display: flex;
-      max-height: unset;
       position: static;
+      display: flex;
+      flex-direction: row;
+      max-height: unset;
     }
   }
 
@@ -43,29 +42,29 @@
   }
 
   &ListItem {
-    transition: background-color 0.3s ease-in-out;
     display: block;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background-color 0.3s ease-in-out;
     &:hover,
     &:focus {
       background-color: var(--primary-colour);
     }
     a {
+      display: inline-block;
       padding: 24px;
       color: var(--font-colour);
       text-decoration: none;
-      display: inline-block;
     }
   }
 
   &Logo {
-    fill: var(--font-colour);
+    order: 0;
     max-width: 240px;
     height: auto;
     margin: 24px;
-    order: 0;
+    fill: var(--font-colour);
   }
 
   &Button {

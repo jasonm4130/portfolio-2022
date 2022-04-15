@@ -10,7 +10,7 @@
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
-  "[SCSS]": {
+  "[scss]": {
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
@@ -19,5 +19,9 @@
   // tell the ESLint plugin to run on save
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"]
 }

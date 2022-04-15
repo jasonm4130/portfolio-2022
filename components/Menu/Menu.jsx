@@ -24,12 +24,8 @@ export default function Menu() {
         <Logo className={mainNavLogo} />
         <ul className={`${mainNavList} ${isOpen ? mainNavListOpen : ''}`}>
           {items.map((item) => (
-            <li className={mainNavListItem}>
-              <Link
-                key={item}
-                className={mainNavListItemLink}
-                href={`/${item}`}
-              >
+            <li key={item} className={mainNavListItem}>
+              <Link className={mainNavListItemLink} href={`/${item}`}>
                 {item}
               </Link>
             </li>

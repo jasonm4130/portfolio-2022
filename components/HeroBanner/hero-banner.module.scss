@@ -1,0 +1,27 @@
+.heroBanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  fill: var(--primary-colour);
+
+  &Image {  
+    position: relative;
+    width: 100%;
+    min-height: 275px;
+  }
+
+  &ImageProfile {
+    position: absolute;
+    z-index: 2;
+  }
+
+  &ImageBG {
+    position: absolute;
+    width: 300%;
+    height: auto;
+  }
+
+  &Content {
+  }
+}
