@@ -1,0 +1,19 @@
+@import "normalize.css";
+@import "./variables.scss";
+@import "./breakpoints.scss";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  background-color: var(--bg-colour);
+  color: var(--font-colour);
+}

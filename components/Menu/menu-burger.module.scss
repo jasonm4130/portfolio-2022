@@ -1,0 +1,41 @@
+.burgerIcon {
+  cursor: pointer;
+  transition: transform 400ms;
+  user-select: none;
+
+  .line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: var(--font-colour);
+    stroke-width: 5.5;
+    stroke-linecap: round;
+  }
+
+  .top {
+    stroke-dasharray: 40 130;
+  }
+
+  .middle {
+    stroke-dasharray: 40 140;
+  }
+
+  .bottom {
+    stroke-dasharray: 40 205;
+  }
+
+  &Active {
+    .top {
+      stroke-dasharray: 75 130;
+      stroke-dashoffset: -63px;
+    }
+
+    .middle {
+      stroke-dashoffset: -102px;
+    }
+
+    .bottom {
+      stroke-dasharray: 110 205;
+      stroke-dashoffset: -86px;
+    }
+  }
+}

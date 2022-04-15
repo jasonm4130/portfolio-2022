@@ -1,0 +1,79 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/breakpoints.scss";
+
+.mainNav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  &Wrapper {
+  }
+
+  &List {
+    list-style: none;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    order: 2;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    position: absolute;
+    top: 100%;
+    background: var(--bg-colour);
+    width: 100%;
+    height: calc(100vh - 100%);
+    @include media-tablet-up {
+      flex-direction: row;
+      display: flex;
+      max-height: unset;
+      position: static;
+    }
+  }
+
+  &ListOpen {
+    max-height: 100vh;
+  }
+
+  &ListItem {
+    transition: background-color 0.3s ease-in-out;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover,
+    &:focus {
+      background-color: var(--primary-colour);
+    }
+    a {
+      padding: 24px;
+      color: var(--font-colour);
+      text-decoration: none;
+      display: inline-block;
+    }
+  }
+
+  &Logo {
+    fill: var(--font-colour);
+    max-width: 240px;
+    height: auto;
+    margin: 24px;
+    order: 0;
+  }
+
+  &Button {
+    order: 1;
+    margin: 0 auto;
+    @include reset-button;
+    @include media-tablet-up {
+      display: none;
+    }
+  }
+}
