@@ -1,27 +1,61 @@
+@import "../../styles/breakpoints.scss";
+
 .heroBanner {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
   fill: var(--primary-colour);
-
-  &Image {  
+  @include media-tablet-up {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15%;
+  }
+  
+  &Wrapper {
     position: relative;
-    width: 100%;
-    min-height: 275px;
+    overflow: hidden;
+  }
+
+  &Image {
+    @include media-tablet-up {
+      width: 50%;
+    }
   }
 
   &ImageProfile {
-    position: absolute;
-    z-index: 2;
+    width: 100%;
+    height: auto;
+    fill: #000;
   }
 
   &ImageBG {
     position: absolute;
-    width: 300%;
+    bottom: 0;
+    width: 100%;
     height: auto;
+    max-height: 100%;
   }
 
   &Content {
+    padding: 18px;
+    @include media-tablet-up {
+      width: 50%;
+      h1 {
+        margin-bottom: 12px;
+        font-size: 64px;
+      }
+      small {
+        font-size: 24px;
+        line-height: 28px;
+      }
+    }
+    span {
+      color: var(--primary-colour);
+    }
   }
 }

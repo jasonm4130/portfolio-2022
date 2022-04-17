@@ -4,17 +4,16 @@
 .mainNav {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   max-width: var(--max-width);
   margin: 0 auto;
-
-  &Wrapper {
-  }
 
   &List {
     position: absolute;
     top: 100%;
+    z-index: 4;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -33,6 +32,7 @@
       position: static;
       display: flex;
       flex-direction: row;
+      width: auto;
       max-height: unset;
     }
   }
