@@ -1,20 +1,41 @@
 import Head from 'next/head';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import HeroBanner from '../components/HeroBanner/HeroBanner';
-import Layout from '../components/Layout';
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Home</title>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
-          rel="stylesheet"
-        />
+        <title>Jason Matthew - Software Engineer</title>
       </Head>
-      <Layout>
-        <HeroBanner />
-      </Layout>
+      <HeroBanner />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Get the files from the posts dir
+  const files = fs.readdirSync(path.join('posts'));
+
+  // Get post info
+  const posts = files.map((fileName) => {
+    // Get the file name before the extension
+    const slug = fileName.split('.').at(0);
+
+    // Get the front matter
+    const { data: frontmatter } = matter.read(path.join('posts', fileName));
+
+    return {
+      slug,
+      frontmatter,
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
