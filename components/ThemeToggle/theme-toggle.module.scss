@@ -2,21 +2,55 @@
 
 %svg {
   position: absolute;
-  max-width: 24px;
+  width: var(--icon-size);
+  max-width: var(--icon-size);
+  height: auto;
+  max-height: var(--icon-size);
   transition: opacity 0.3s ease-in-out;
   fill: var(--font-colour);
 }
 
 .themeToggle {
-  width: 24px;
-  height: 24px;
+  --icon-size: 18px;
+  --icon-padding: 4px;
+  --icon-height: calc(var(--icon-size) + 2 * var(--icon-padding));
+  --icon-width: calc(var(--icon-size) + 2 * var(--icon-padding));
+  --toggle-padding-x: 4px;
+  --toggle-padding-y: 4px;
+  --toggle-gap: 8px;
   @include reset-button;
+  display: flex;
+  align-items: center;
+  width: calc(var(--icon-width) * 2 + var(--toggle-gap) + var(--toggle-padding-x) * 2);
+  height: calc(var(--icon-height) + var(--toggle-padding-y) * 2);
+  padding: var(--toggle-padding-y) var(--toggle-padding-x);
+  background: var(--font-colour);
+  border-radius: calc((var(--icon-height) + var(--toggle-padding-y) * 2) / 2);
+  &Switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--icon-size) + var(--icon-padding) * 2);
+    height: calc(var(--icon-size) + var(--icon-padding) * 2);
+    background-color: var(--bg-colour);
+    border-radius: 50%;
+    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+  }
   &Light {
     .moon {
       opacity: 0;
     }
+    .themeToggleSwitch {
+      right: calc(100% - var(--icon-width));
+      left: 0;
+    }
   }
   &Dark {
+    .themeToggleSwitch {
+      right: 0;
+      left: calc(100% - var(--icon-width));
+    }
     .sun {
       opacity: 0;
     }

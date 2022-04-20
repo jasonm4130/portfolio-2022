@@ -9,6 +9,7 @@ import {
   mainNavListItemLink,
   mainNavLogo,
   mainNavButton,
+  mainNavThemeToggle,
 } from './menu.module.scss';
 import MenuBurger from './Menu-Burger';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -42,7 +43,7 @@ export default function Menu() {
           </li>
         ))}
       </ul>
-      <ThemeToggle />
+      <ThemeToggle className={mainNavThemeToggle} />
       <button
         className={mainNavButton}
         type="button"
