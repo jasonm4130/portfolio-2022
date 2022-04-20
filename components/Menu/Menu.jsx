@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import Logo from '../Logo';
 import {
   mainNav,
   mainNavList,
   mainNavListOpen,
   mainNavListItem,
+  mainNavListItemActive,
   mainNavListItemLink,
   mainNavLogo,
   mainNavButton,
@@ -15,6 +17,8 @@ import MenuBurger from './Menu-Burger';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 export default function Menu() {
+  const { pathname } = useRouter();
+
   const items = [
     {
       name: 'Home',
@@ -28,20 +32,39 @@ export default function Menu() {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  useEffect(() => {
+    const bodyClasses = document.body.classList;
+    if (isOpen && !bodyClasses.contains('scroll-lock')) {
+      bodyClasses.add('scroll-lock');
+    } else if (bodyClasses.contains('scroll-lock')) {
+      bodyClasses.remove('scroll-lock');
+    }
+  });
+
   return (
     <nav className={mainNav}>
       <Logo className={mainNavLogo} />
       <ul className={`${mainNavList} ${isOpen ? mainNavListOpen : ''}`}>
-        {items.map((item) => (
-          <li key={item.name} className={mainNavListItem}>
-            <Link
-              className={mainNavListItemLink}
-              href={item.link ? item.link : `/${item.name.toLowerCase()}`}
-            >
-              {item.name}
-            </Link>
-          </li>
-        ))}
+        {items.map((item) => {
+          let href = `/${item.name.toLowerCase()}`;
+          if (item.link) {
+            href = item.link;
+          }
+
+          const classList = [mainNavListItem];
+
+          if (pathname === href) {
+            classList.push(mainNavListItemActive);
+          }
+
+          return (
+            <li key={item.name} className={classList.join(' ')}>
+              <Link className={mainNavListItemLink} href={href}>
+                {item.name}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
       <ThemeToggle className={mainNavThemeToggle} />
       <button

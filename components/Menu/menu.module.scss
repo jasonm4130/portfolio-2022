@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 12px 24px;
@@ -13,6 +14,7 @@
   &List {
     position: absolute;
     top: 100%;
+    left: 0;
     z-index: 4;
     flex-direction: column;
     flex-wrap: wrap;
@@ -34,6 +36,7 @@
       flex-direction: row;
       width: auto;
       max-height: unset;
+      overflow: unset;
     }
   }
 
@@ -47,15 +50,45 @@
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease-in-out;
+
     &:hover,
     &:focus {
-      background-color: var(--primary-colour);
+      a {
+        &:after {
+          width: calc(100% + 8px);
+        }
+      }
     }
+    
     a {
+      position: relative;
       display: inline-block;
-      padding: 24px;
+      margin: 12px 18px;
       color: var(--font-colour);
+      font-size: calc(var(--font-scaling) * 1.563rem);
       text-decoration: none;
+      @include media-tablet-up {
+        margin: 0 18px;
+        font-size: 1rem;
+      }
+      &:after {
+        position: absolute;
+        bottom: -4px;
+        left: -4px;
+        width: 0;
+        height: 2px;
+        background-color: var(--font-colour);
+        transition: width 0.3s ease-in-out;
+        content: '';
+      }
+    }
+
+    &Active {
+      a {
+        &:after {
+          width: calc(100% + 8px);
+        }
+      }
     }
   }
 

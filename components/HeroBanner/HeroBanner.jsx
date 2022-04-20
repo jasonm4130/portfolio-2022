@@ -1,19 +1,17 @@
 import Image from 'next/image';
 import React from 'react';
-import Blob from './Blob';
 import {
-  heroBannerWrapper,
   heroBanner,
   heroBannerImage,
-  heroBannerImageBG,
-  heroBannerImageProfile,
+  heroBannerImageWrapper,
+  heroBannerImageContainer,
   heroBannerContent,
 } from './hero-banner.module.scss';
-import ProfilePic from './ProfilePic';
+import HeroImage from '/public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
 
 export default function HeroBanner() {
   return (
-    <section className={heroBannerWrapper}>
+    <section>
       <div className={heroBanner}>
         <div className={heroBannerContent}>
           <h1>
@@ -29,8 +27,14 @@ export default function HeroBanner() {
             on my journey.
           </p>
         </div>
-        <div className={heroBannerImage}>
-          <ProfilePic className={heroBannerImageProfile} />
+        <div className={heroBannerImageContainer}>
+          <div className={heroBannerImageWrapper}>
+            <Image
+              className={heroBannerImage}
+              src={HeroImage}
+              layout="responsive"
+            />
+          </div>
         </div>
       </div>
       {/* <Blob className={heroBannerImageBG} /> */}

@@ -6,39 +6,59 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 24px 0;
   fill: var(--primary-colour);
   @include media-tablet-up {
     display: flex;
     flex-direction: row;
     padding-bottom: 15%;
   }
-  
-  &Wrapper {
-    position: relative;
-    overflow: hidden;
-  }
 
-  &Image {
+  &ImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     @include media-tablet-up {
+      flex-direction: row;
+      align-items: end;
       width: 50%;
     }
   }
 
-  &ImageProfile {
+  &ImageWrapper {
+    position: relative;
+    top: 9px;
+    left: 9px;
     width: 100%;
-    height: auto;
-    fill: #000;
+    @include media-tablet-up {
+      margin: 0 64px;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      border: 4px solid var(--font-colour);
+      content: '';
+    }
+    &:before {
+      top: 0;
+      left: 0;
+    }
+    &:after {
+      top: -18px;
+      left: -18px;
+    }
   }
 
-  &ImageBG {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    max-height: 100%;
+  &Image {
+
   }
 
   &Content {
