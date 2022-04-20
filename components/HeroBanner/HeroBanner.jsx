@@ -17,9 +17,12 @@ export default function HeroBanner() {
       <div className={heroBanner}>
         <div className={heroBannerContent}>
           <h1>
-            Hi, I'm <span>Jason</span>
+            Hi, I'm <span className="highlight">Jason</span> Matthew,
+            <br />
+            <span className="h2">
+              a software engineer from Brisbane, Australia
+            </span>
           </h1>
-          <small>a software engineer from Brisbane, Australia</small>
           <p>
             I'm constantly learning and improving, this is my corner of the web
             where I share what I have been up to, and try and bring people along

@@ -1,0 +1,32 @@
+@import "../../styles/mixins.scss";
+
+%svg {
+  position: absolute;
+  max-width: 24px;
+  transition: opacity 0.3s ease-in-out;
+  fill: var(--font-colour);
+}
+
+.themeToggle {
+  width: 24px;
+  height: 24px;
+  @include reset-button;
+  &Light {
+    .moon {
+      opacity: 0;
+    }
+  }
+  &Dark {
+    .sun {
+      opacity: 0;
+    }
+  }
+}
+
+.moon {
+  @extend %svg;
+}
+
+.sun {
+  @extend %svg;
+}

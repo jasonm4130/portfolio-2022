@@ -1,17 +1,27 @@
 :root {
   // Grid
   --max-width: 1600px;
+  --main-padding-x: 32px;
+  --main-padding-y: 16px;
 
   // Colour definitions
-  --mint-cream: #f7fff7;
-  --orange-red-crayola: #fe5f55;
-  --rhythm: #777da7;
-  --oxford-blue: #02182b;
-  --smoky-black: #131112;
+  --black: #030301ff;
+  --ivory: #fffff3ff;
+  --shadow-blue: #7d8ca3ff;
+  --iceberg: #79a9d1ff;
+  --amber-sae-ece: #ff7f11ff;
 
-  --primary-colour: var(--orange-red-crayola);
-  --secondary-colour: var(--rhythm);
-  --font-colour: var(--mint-cream);
-  --bg-colour: var(--smoky-black);
-  --bg-shadow: var(--oxford-blue);
+  --primary-colour: var(--amber-sae-ece);
+  --secondary-colour: var(--iceberg);
+  --accent-colour: var(--shadow-blue);
+  --font-colour: var(--ivory);
+  --bg-colour: var(--black);
+}
+
+[data-theme="light"] {
+  --primary-colour: var(--iceberg);
+  --secondary-colour: var(--amber-sae-ece);
+  --accent-colour: var(--shadow-blue);
+  --font-colour: var(--black);
+  --bg-colour: var(--ivory);
 }

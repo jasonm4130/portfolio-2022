@@ -11,6 +11,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next": "12.1.5",
+    "next-themes": "^0.1.1",
     "normalize.css": "^8.0.1",
     "prismjs": "^1.28.0",
     "prop-types": "^15.8.1",
@@ -24,6 +25,7 @@
     "@babel/core": "^7.17.9",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-react": "^7.16.7",
+    "@svgr/webpack": "^6.2.1",
     "@types/node": "^16.11.27",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",

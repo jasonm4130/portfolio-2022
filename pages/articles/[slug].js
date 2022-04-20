@@ -9,6 +9,7 @@ import remarkHtml from 'remark-html';
 import remarkPrism from 'remark-prism';
 // Import styles for syntax highlighting
 import 'prismjs/themes/prism-tomorrow.css';
+import { article } from '../../styles/article.module.scss';
 
 export default function Article({ title, content }) {
   return (
@@ -16,7 +17,7 @@ export default function Article({ title, content }) {
       <Head>
         <title>{title} - Articles</title>
       </Head>
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <main className={article} dangerouslySetInnerHTML={{ __html: content }} />
     </>
   );
 }

@@ -11,9 +11,19 @@ import {
   mainNavButton,
 } from './menu.module.scss';
 import MenuBurger from './Menu-Burger';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 export default function Menu() {
-  const items = ['Home', 'About', 'Portfolio', 'Posts', 'Contacts'];
+  const items = [
+    {
+      name: 'Home',
+      link: '/',
+    },
+    { name: 'About' },
+    { name: 'Portfolio' },
+    { name: 'Articles' },
+    { name: 'Contact' },
+  ];
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,13 +32,17 @@ export default function Menu() {
       <Logo className={mainNavLogo} />
       <ul className={`${mainNavList} ${isOpen ? mainNavListOpen : ''}`}>
         {items.map((item) => (
-          <li key={item} className={mainNavListItem}>
-            <Link className={mainNavListItemLink} href={`/${item}`}>
-              {item}
+          <li key={item.name} className={mainNavListItem}>
+            <Link
+              className={mainNavListItemLink}
+              href={item.link ? item.link : `/${item.name.toLowerCase()}`}
+            >
+              {item.name}
             </Link>
           </li>
         ))}
       </ul>
+      <ThemeToggle />
       <button
         className={mainNavButton}
         type="button"
