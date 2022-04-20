@@ -9,6 +9,7 @@
   justify-content: space-between;
   max-width: var(--max-width);
   margin: 0 auto;
+  padding: 12px 24px;
 
   &List {
     position: absolute;
@@ -63,7 +64,6 @@
     order: 0;
     max-width: 150px;
     height: auto;
-    margin: 24px;
     fill: var(--font-colour);
   }
 

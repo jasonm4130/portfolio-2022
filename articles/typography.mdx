@@ -72,3 +72,32 @@ This is a paragraph with `inline code` and _italics_ and **bold** and a [link](#
 | `mb`    | number, string, or array | margin bottom    |
 
 ## This is a really long heading that should wrap but still look okay with regard to line height
+
+JS Code Block
+
+```javascript
+export async function getStaticProps() {
+  // Get the files from the posts dir
+  const files = fs.readdirSync(path.join("posts"));
+
+  // Get post info
+  const posts = files.map((fileName) => {
+    // Get the file name before the extension
+    const slug = fileName.split(".").at(0);
+
+    // Get the front matter
+    const { data: frontmatter } = matter.read(path.join("posts", fileName));
+
+    return {
+      slug,
+      frontmatter,
+    };
+  });
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
+```

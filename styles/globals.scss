@@ -1,6 +1,7 @@
 @import "normalize.css";
 @import "./variables.scss";
 @import "./breakpoints.scss";
+@import "./typography.scss";
 
 html {
   box-sizing: border-box;
@@ -13,7 +14,11 @@ html {
 }
 
 body {
-  font-family: "Fira Code", monospace;
-  background-color: var(--bg-colour);
   color: var(--font-colour);
+  font-family: "Roboto Mono", monospace;
+  background-color: var(--bg-colour);
+}
+
+main {
+  padding: 18px;
 }
