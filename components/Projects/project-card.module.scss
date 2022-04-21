@@ -1,0 +1,18 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.card {
+  position: relative;
+  margin: -1px;
+  padding: 32px;
+  border: 2px solid var(--font-colour);
+}
+
+.title {
+  margin-bottom: 1.25em;
+  font-weight: bold;
+  font-size: calc(var(--font-scaling) * 1.25rem);
+}
+
+.link {
+}

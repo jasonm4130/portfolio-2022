@@ -33,6 +33,6 @@ export default function Toggle({ className }) {
   );
 }
 
-toggle.propTypes = {
+Toggle.propTypes = {
   className: PropTypes.string,
 };

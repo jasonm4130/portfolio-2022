@@ -1,5 +1,5 @@
-@import '../../styles/breakpoints.scss';
-@import '../../styles/mixins.scss';
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
 
 .section {
   @include section;
@@ -7,16 +7,16 @@
 
 .title {
   @include section-title;
+  margin-top: 0;
 }
 
 .grid {
   display: grid;
-  grid-row-gap: 0px;
-  grid-column-gap: 0px;
-  grid-template-rows: repeat(auto, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(2, 1fr);
+  gap: 0;
   @include media-tablet-up {
     grid-template-rows: repeat(2, 1fr);
-    grid-template-columns: repeat(auto, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
