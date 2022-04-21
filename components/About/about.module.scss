@@ -1,4 +1,4 @@
-@import '../../styles/mixins.scss';
+@import "../../styles/mixins.scss";
 
 .section {
   @include section;
@@ -20,7 +20,7 @@
   font-weight: bold;
   text-decoration: none;
   background-color: var(--accent-colour);
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color var(--transition);
 
   &:after {
     position: absolute;
@@ -29,8 +29,8 @@
     width: 0;
     height: 2px;
     background-color: var(--bg-colour);
-    transition: width 0.3s ease-in-out;
-    content: '';
+    transition: width var(--transition);
+    content: "";
   }
 
   &:hover,

@@ -14,8 +14,8 @@ export default function Home({ statsData }) {
       </Head>
       <main>
         <HeroBanner />
-        <About />
         <Projects />
+        <About />
         <Skills statsData={statsData} />
       </main>
     </>

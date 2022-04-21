@@ -1,5 +1,5 @@
 @import "../../styles/breakpoints.scss";
-@import '../../styles/mixins.scss';
+@import "../../styles/mixins.scss";
 
 .section {
   @include section;
@@ -18,10 +18,9 @@
 }
 
 .content {
-  padding: 18px;
-    @include media-tablet-up {
-      width: 50%;
-    }
+  @include media-tablet-up {
+    width: 50%;
+  }
 }
 
 .image {
@@ -41,7 +40,7 @@
       width: 100%;
       height: 100%;
       border: 4px solid var(--font-colour);
-      content: '';
+      content: "";
     }
     &:before {
       top: 0;

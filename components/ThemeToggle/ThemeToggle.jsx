@@ -12,13 +12,20 @@ import {
 import MoonSVG from '../../public/moon.svg';
 import SunSVG from '../../public/sun.svg';
 
+function getThemeInverseString(theme) {
+  if (theme === 'dark') {
+    return 'light';
+  }
+  return 'dark';
+}
+
 export default function Toggle({ className }) {
   const { theme, setTheme } = useTheme();
 
   return (
     <button
       onClick={() => {
-        setTheme(theme === 'light' ? 'dark' : 'light');
+        setTheme(getThemeInverseString(theme));
       }}
       type="button"
       className={`${toggle} ${
@@ -28,6 +35,9 @@ export default function Toggle({ className }) {
       <span className={toggleSwitch}>
         <MoonSVG className={moon} />
         <SunSVG className={sun} />
+      </span>
+      <span className="sr-only">
+        Toggle theme from {theme} to {getThemeInverseString(theme)}
       </span>
     </button>
   );

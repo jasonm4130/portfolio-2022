@@ -6,7 +6,7 @@
   max-width: var(--icon-size);
   height: auto;
   max-height: var(--icon-size);
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity var(--transition);
   fill: var(--font-colour);
 }
 
@@ -28,6 +28,7 @@
   padding: var(--toggle-padding-y) var(--toggle-padding-x);
   background: var(--font-colour);
   border-radius: calc((var(--icon-height) + var(--toggle-padding-y) * 2) / 2);
+  cursor: pointer;
 
   &Switch {
     position: relative;
@@ -38,7 +39,7 @@
     height: calc(var(--icon-size) + var(--icon-padding) * 2);
     background-color: var(--bg-colour);
     border-radius: 50%;
-    transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
+    transition: left var(--transition), right var(--transition);
   }
 
   &Light {
