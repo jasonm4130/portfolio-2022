@@ -20,3 +20,17 @@
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
 }
+
+@mixin section-title {
+  position: relative;
+  display: inline-block;
+  &:after {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--font-colour);
+    content: '';
+  }
+}

@@ -1,0 +1,39 @@
+@import '../../styles/mixins.scss';
+
+.about {
+  &Content {
+    max-width: 960px;
+  }
+  &Title {
+    @include section-title;
+  }
+  &Link {
+    position: relative;
+    display: inline-block;
+    padding: 16px 8px;
+    color: var(--bg-colour);
+    font-weight: bold;
+    text-decoration: none;
+    background-color: var(--accent-colour);
+    transition: background-color 0.3s ease-in-out;
+
+    &:after {
+      position: absolute;
+      bottom: 18px;
+      left: 8px;
+      width: 0;
+      height: 2px;
+      background-color: var(--bg-colour);
+      transition: width 0.3s ease-in-out;
+      content: '';
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--secondary-colour);
+      &:after {
+        width: calc(100% - 16px);
+      }
+    }
+  }
+}

@@ -15,16 +15,15 @@ export default function HeroBanner() {
       <div className={heroBanner}>
         <div className={heroBannerContent}>
           <h1>
-            Hi, I'm <span className="highlight">Jason</span> Matthew,
+            I'm <span className="highlight">Jason</span> Matthew,
             <br />
-            <span className="h2">
-              a software engineer from Brisbane, Australia
-            </span>
+            <span className="h3">a software engineer</span>
           </h1>
           <p>
-            I'm constantly learning and improving, this is my corner of the web
-            where I share what I have been up to, and try and bring people along
-            on my journey.
+            I'm pashionate about learning, and wanted a place to share. I've
+            carved out this little corner of the internet to do just that. Come
+            and join me on my journey of improvment and learning to be a better
+            engineer.
           </p>
         </div>
         <div className={heroBannerImageContainer}>
