@@ -67,7 +67,7 @@ export default function About() {
   return (
     <section className={about}>
       <div className={aboutContent}>
-        <h2 className={aboutTitle}>About</h2>
+        <h2 className={aboutTitle}>About Me</h2>
         <p>
           I'm a software engineer from Brisbane, Australia. I have been in the
           field in some shape or form for about{' '}
