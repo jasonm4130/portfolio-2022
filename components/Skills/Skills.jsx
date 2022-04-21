@@ -53,7 +53,7 @@ export default function Skills({ statsData }) {
       </div>
       <div className={skillsGrid}>
         {languagesArray.map((language) => (
-          <SkillCard language={language} />
+          <SkillCard key={language.name} language={language} />
         ))}
       </div>
     </section>

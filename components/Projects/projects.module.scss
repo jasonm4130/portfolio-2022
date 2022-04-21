@@ -1,2 +1,10 @@
 @import '../../styles/breakpoints.scss';
 @import '../../styles/mixins.scss';
+
+.projects {
+  @include section;
+
+  &Title {
+    @include section-title;
+  }
+}

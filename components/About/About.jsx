@@ -1,6 +1,5 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
-import useInterval from '../../lib/useInterval';
+import React, { useEffect, useState } from 'react';
 import {
   about,
   aboutTitle,
@@ -42,18 +41,28 @@ function getRedableTime(ms) {
 }
 
 export default function About() {
-  const startingDate = new Date('01/11/2014');
-  const nowDate = new Date();
+  const [industryInEpoch, setIndustryInEpoch] = useState(0);
+  const [timePassed, setTimePassed] = useState({
+    days: 0,
+    weeks: 0,
+    months: 0,
+    years: 0,
+    decades: 0,
+  });
 
-  const timeInIndustry = nowDate - startingDate;
-
-  const [industryInEpoch, setIndustryInEpoch] = useState(timeInIndustry);
-  useInterval(() => {
-    setIndustryInEpoch(Date.now() - startingDate);
-  }, 100);
-
-  const { days, weeks, months, years, decades } =
+  useEffect(() => {
+    const startingDate = new Date('01/11/2014');
+    const nowDate = new Date();
+    const timeInIndustry = nowDate - startingDate;
+    setInterval(() => setIndustryInEpoch(Date.now() - startingDate), 100);
+    const { days, weeks, months, years, decades } =
     getRedableTime(timeInIndustry);
+    setTimePassed({
+      days,
+      weeks,
+      months, years, decades
+    })
+  }, []);
 
   return (
     <section className={about}>
@@ -62,8 +71,8 @@ export default function About() {
         <p>
           I'm a software engineer from Brisbane, Australia. I have been in the
           field in some shape or form for about{' '}
-          {decades > 0 ? `${decades} decades,` : ''} {years} years, {months}{' '}
-          months, {weeks} weeks, and {days} days, or to be more precise{' '}
+          {timePassed.decades > 0 ? `${timePassed.decades} decades,` : ''} {timePassed.years} years, {timePassed.months}{' '}
+          months, {timePassed.weeks} weeks, and {timePassed.days} days, or to be more precise{' '}
           {industryInEpoch}ms.
         </p>
         <p>
