@@ -30,7 +30,7 @@ export async function getStaticPaths() {
   // Get the articles paths from the file name
   const paths = files.map((fileName) => {
     // Get the slug from the article
-    const slug = fileName?.split('.')?.at(0);
+    const [slug] = fileName.split('.');
 
     // Return our params
     return {
