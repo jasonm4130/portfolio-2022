@@ -36,9 +36,7 @@ export default function Toggle({ className }) {
         <MoonSVG className={moon} />
         <SunSVG className={sun} />
       </span>
-      <span className="sr-only">
-        Toggle theme from {theme} to {getThemeInverseString(theme)}
-      </span>
+      <span className="sr-only">Toggle theme</span>
     </button>
   );
 }

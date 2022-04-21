@@ -8,7 +8,7 @@ export default function SkillCard({ language }) {
   return (
     <article>
       <div className={title}>{name}</div>
-      <div>{xps} key strokes</div>
+      <div>{xps.toLocaleString('en-US')} key strokes</div>
     </article>
   );
 }
