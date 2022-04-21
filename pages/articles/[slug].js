@@ -9,6 +9,7 @@ import remarkHtml from 'remark-html';
 import remarkPrism from 'remark-prism';
 // Import styles for syntax highlighting
 import 'prismjs/themes/prism-tomorrow.css';
+import PropTypes from 'prop-types';
 import { article } from '../../styles/article.module.scss';
 
 export default function Article({ title, content }) {
@@ -44,6 +45,11 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+Article.propTypes = {
+  title: PropTypes.string,
+  content: PropTypes.string,
+};
 
 export async function getStaticProps({ params: { slug } }) {
   const { content: markdown, data: frontmatter } = matter.read(

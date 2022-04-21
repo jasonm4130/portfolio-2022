@@ -3,18 +3,11 @@ import PropTypes from 'prop-types';
 import {
   skillCard,
   skillCardTitle,
-  skillCardLevel,
   skillCardXps,
 } from './skill-card.module.scss';
 
-const LEVEL_FACTOR = 0.025;
-
 export default function SkillCard({ language }) {
   const { name, xps } = language;
-
-  function getLevel(xps) {
-    return Math.floor(LEVEL_FACTOR * Math.sqrt(xps));
-  }
 
   return (
     <article className={skillCard}>

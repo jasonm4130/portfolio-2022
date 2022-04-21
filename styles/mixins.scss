@@ -1,3 +1,5 @@
+@import './breakpoints.scss';
+
 @mixin reset-button {
   width: auto;
   margin: 0;
@@ -19,6 +21,20 @@
   /* Corrects font smoothing for webkit */
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
+}
+
+@mixin section {
+  max-width: var(--max-width);
+  margin: 48px auto;
+  &:first-of-type {
+    margin-top: 0;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  @include media-tablet-up {
+    margin: 80px auto;
+  }
 }
 
 @mixin section-title {

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import HeroBanner from '../components/HeroBanner/HeroBanner';
 import Skills from '../components/Skills/Skills';
 import About from '../components/About/About';
+import Projects from '../components/Projects/Projects';
 
 export default function Home({ statsData }) {
   return (
@@ -14,6 +15,7 @@ export default function Home({ statsData }) {
       <main>
         <HeroBanner />
         <About />
+        <Projects />
         <Skills statsData={statsData} />
       </main>
     </>

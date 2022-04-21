@@ -1,6 +1,8 @@
 @import "../../styles/breakpoints.scss";
+@import '../../styles/mixins.scss';
 
 .heroBanner {
+  @include section;
   position: relative;
   z-index: 2;
   display: flex;
@@ -8,13 +10,10 @@
   align-items: center;
   justify-content: space-between;
   max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 24px 0;
   fill: var(--primary-colour);
   @include media-tablet-up {
     display: flex;
     flex-direction: row;
-    padding-bottom: 15%;
   }
 
   &ImageContainer {

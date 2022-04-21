@@ -2,14 +2,14 @@
 @import "../../styles/mixins.scss";
 
 .skills {
+  @include section;
+
   &Title {
    @include section-title;
   }
 
   &Intro {
-    @include media-tablet-up {
-      width: 50%;
-    }
+    max-width: var(--max-content-width);
   }
 
   &Grid {
