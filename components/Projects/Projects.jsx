@@ -1,11 +1,11 @@
 import React from 'react';
-import { projects, projectsTitle, projectGrid } from './projects.module.scss';
+import { section, title, grid } from './projects.module.scss';
 
 export default function Projects() {
   return (
-    <section className={projects}>
-      <h2 className={projectsTitle}>Projects</h2>
-      <div className={projectGrid} />
+    <section className={section}>
+      <h2 className={title}>Projects</h2>
+      <div className={grid} />
     </section>
   );
 }

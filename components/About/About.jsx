@@ -1,11 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import {
-  about,
-  aboutTitle,
-  aboutLink,
-  aboutContent,
-} from './about.module.scss';
+import { section, title, link, content } from './about.module.scss';
 
 function getRedableTime(ms) {
   let miliseconds = Math.floor(ms);
@@ -67,9 +62,9 @@ export default function About() {
   }, []);
 
   return (
-    <section className={about}>
-      <div className={aboutContent}>
-        <h2 className={aboutTitle}>About Me</h2>
+    <section className={section}>
+      <div className={content}>
+        <h2 className={title}>About Me</h2>
         <p>
           I'm a software engineer from Brisbane, Australia. I have been in the
           field in some shape or form for about{' '}
@@ -94,7 +89,7 @@ export default function About() {
           game.
         </p>
         <Link href="/about">
-          <a className={aboutLink}>More about me</a>
+          <a className={link}>More about me</a>
         </Link>
       </div>
     </section>

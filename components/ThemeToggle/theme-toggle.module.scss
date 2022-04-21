@@ -10,7 +10,7 @@
   fill: var(--font-colour);
 }
 
-.themeToggle {
+.toggle {
   --icon-size: 18px;
   --icon-padding: 4px;
   --icon-height: calc(var(--icon-size) + 2 * var(--icon-padding));
@@ -21,11 +21,14 @@
   @include reset-button;
   display: flex;
   align-items: center;
-  width: calc(var(--icon-width) * 2 + var(--toggle-gap) + var(--toggle-padding-x) * 2);
+  width: calc(
+    var(--icon-width) * 2 + var(--toggle-gap) + var(--toggle-padding-x) * 2
+  );
   height: calc(var(--icon-height) + var(--toggle-padding-y) * 2);
   padding: var(--toggle-padding-y) var(--toggle-padding-x);
   background: var(--font-colour);
   border-radius: calc((var(--icon-height) + var(--toggle-padding-y) * 2) / 2);
+
   &Switch {
     position: relative;
     display: flex;
@@ -37,17 +40,19 @@
     border-radius: 50%;
     transition: left 0.3s ease-in-out, right 0.3s ease-in-out;
   }
+
   &Light {
     .moon {
       opacity: 0;
     }
-    .themeToggleSwitch {
+    .toggleSwitch {
       right: calc(100% - var(--icon-width));
       left: 0;
     }
   }
+
   &Dark {
-    .themeToggleSwitch {
+    .toggleSwitch {
       right: 0;
       left: calc(100% - var(--icon-width));
     }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  burgerIcon,
-  burgerIconActive,
+  icon,
+  iconActive,
   line,
   top,
   middle,
@@ -10,10 +10,10 @@ import {
 } from './menu-burger.module.scss';
 
 export default function MenuBurger({ isOpen }) {
-  const classes = [burgerIcon];
+  const classes = [icon];
 
   if (isOpen) {
-    classes.push(burgerIconActive);
+    classes.push(iconActive);
   }
 
   return (

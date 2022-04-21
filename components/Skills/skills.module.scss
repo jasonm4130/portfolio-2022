@@ -1,28 +1,24 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
 
-.skills {
-  @include section;
+.title {
+  @include section-title;
+}
 
-  &Title {
-   @include section-title;
-  }
+.intro {
+  max-width: var(--max-content-width);
+}
 
-  &Intro {
-    max-width: var(--max-content-width);
-  }
-
-  &Grid {
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: repeat(auto, 1fr);
-    gap: 32px;
-    margin: 64px auto;
-    @include media-tablet-up {
-      grid-gap: 80px;
-      grid-template-rows: repeat(auto, 1fr);
-      grid-template-columns: repeat(4, 1fr);
-      margin: 124px auto;
-    }
+.grid {
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(auto, 1fr);
+  gap: 32px;
+  margin: 64px auto;
+  @include media-tablet-up {
+    grid-gap: 80px;
+    grid-template-rows: repeat(auto, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    margin: 124px auto;
   }
 }

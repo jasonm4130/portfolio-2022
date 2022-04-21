@@ -3,15 +3,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Logo from '../Logo';
 import {
-  mainNav,
-  mainNavList,
-  mainNavListOpen,
-  mainNavListItem,
-  mainNavListItemActive,
-  mainNavListItemLink,
-  mainNavLogo,
-  mainNavButton,
-  mainNavThemeToggle,
+  nav,
+  list,
+  listOpen,
+  listItem,
+  listItemActive,
+  listItemLink,
+  logo,
+  button,
+  themeToggle,
 } from './menu.module.scss';
 import MenuBurger from './Menu-Burger';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
@@ -42,33 +42,33 @@ export default function Menu() {
   });
 
   return (
-    <nav className={mainNav}>
-      <Logo className={mainNavLogo} />
-      <ul className={`${mainNavList} ${isOpen ? mainNavListOpen : ''}`}>
+    <nav className={nav}>
+      <Logo className={logo} />
+      <ul className={`${list} ${isOpen ? listOpen : ''}`}>
         {items.map((item) => {
           let href = `/${item.name.toLowerCase()}`;
           if (item.link) {
             href = item.link;
           }
 
-          const classList = [mainNavListItem];
+          const classList = [listItem];
 
           if (pathname === href) {
-            classList.push(mainNavListItemActive);
+            classList.push(listItemActive);
           }
 
           return (
             <li key={item.name} className={classList.join(' ')}>
-              <Link className={mainNavListItemLink} href={href}>
-                {item.name}
+              <Link href={href}>
+                <a className={listItemLink}>{item.name}</a>
               </Link>
             </li>
           );
         })}
       </ul>
-      <ThemeToggle className={mainNavThemeToggle} />
+      <ThemeToggle className={themeToggle} />
       <button
-        className={mainNavButton}
+        className={button}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >

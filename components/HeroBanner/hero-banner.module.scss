@@ -1,7 +1,7 @@
 @import "../../styles/breakpoints.scss";
 @import '../../styles/mixins.scss';
 
-.heroBanner {
+.section {
   @include section;
   position: relative;
   z-index: 2;
@@ -15,20 +15,17 @@
     display: flex;
     flex-direction: row;
   }
+}
 
-  &ImageContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+.content {
+  padding: 18px;
     @include media-tablet-up {
-      flex-direction: row;
-      align-items: end;
       width: 50%;
     }
-  }
+}
 
-  &ImageWrapper {
+.image {
+  &Wrapper {
     position: relative;
     top: 9px;
     left: 9px;
@@ -56,13 +53,14 @@
     }
   }
 
-  &Image {
-
-  }
-
-  &Content {
-    padding: 18px;
+  &Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     @include media-tablet-up {
+      flex-direction: row;
+      align-items: end;
       width: 50%;
     }
   }

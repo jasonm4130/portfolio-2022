@@ -2,17 +2,17 @@ import React from 'react';
 import { useTheme } from 'next-themes';
 import PropTypes from 'prop-types';
 import {
-  themeToggle,
-  themeToggleLight,
-  themeToggleDark,
-  themeToggleSwitch,
+  toggle,
+  toggleLight,
+  toggleDark,
+  toggleSwitch,
   moon,
   sun,
 } from './theme-toggle.module.scss';
 import MoonSVG from '../../public/moon.svg';
 import SunSVG from '../../public/sun.svg';
 
-export default function ThemeToggle({ className }) {
+export default function Toggle({ className }) {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -21,11 +21,11 @@ export default function ThemeToggle({ className }) {
         setTheme(theme === 'light' ? 'dark' : 'light');
       }}
       type="button"
-      className={`${themeToggle} ${
-        theme === 'light' ? themeToggleLight : themeToggleDark
+      className={`${toggle} ${
+        theme === 'light' ? toggleLight : toggleDark
       } ${className}`}
     >
-      <span className={themeToggleSwitch}>
+      <span className={toggleSwitch}>
         <MoonSVG className={moon} />
         <SunSVG className={sun} />
       </span>
@@ -33,6 +33,6 @@ export default function ThemeToggle({ className }) {
   );
 }
 
-ThemeToggle.propTypes = {
+toggle.propTypes = {
   className: PropTypes.string,
 };
