@@ -56,12 +56,14 @@ export default function About() {
     const timeInIndustry = nowDate - startingDate;
     setInterval(() => setIndustryInEpoch(Date.now() - startingDate), 100);
     const { days, weeks, months, years, decades } =
-    getRedableTime(timeInIndustry);
+      getRedableTime(timeInIndustry);
     setTimePassed({
       days,
       weeks,
-      months, years, decades
-    })
+      months,
+      years,
+      decades,
+    });
   }, []);
 
   return (
@@ -71,9 +73,10 @@ export default function About() {
         <p>
           I'm a software engineer from Brisbane, Australia. I have been in the
           field in some shape or form for about{' '}
-          {timePassed.decades > 0 ? `${timePassed.decades} decades,` : ''} {timePassed.years} years, {timePassed.months}{' '}
-          months, {timePassed.weeks} weeks, and {timePassed.days} days, or to be more precise{' '}
-          {industryInEpoch}ms.
+          {timePassed.decades > 0 ? `${timePassed.decades} decades,` : ''}{' '}
+          {timePassed.years} years, {timePassed.months} months,{' '}
+          {timePassed.weeks} weeks, and {timePassed.days} days, or to be more
+          precise {industryInEpoch}ms.
         </p>
         <p>
           The thing that I enjoy most about development is every problem has a
