@@ -23,6 +23,13 @@
   -moz-osx-font-smoothing: inherit;
 }
 
+@mixin rest-ul {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
 @mixin section {
   max-width: var(--max-width);
   margin: 48px auto;
@@ -37,13 +44,14 @@
   }
 
   @include media-desktop-up {
-    margin: 128px auto;
+    margin: 172px auto;
   }
 }
 
 @mixin section-title {
   position: relative;
   display: inline-block;
+  margin-top: 0;
   &:after {
     position: absolute;
     bottom: -6px;

@@ -1,0 +1,30 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.section {
+  @include section;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  @include media-tablet-up {
+    flex-direction: row;
+  }
+}
+
+.title {
+  @include section-title;
+  margin-top: 0;
+}
+
+.content {
+  @include media-tablet-up {
+    width: 35%;
+    padding-right: 64px;
+  }
+}
+
+.grid {
+  @include media-tablet-up {
+    width: 65%;
+  }
+}

@@ -23,14 +23,26 @@
 }
 
 .title {
-  margin-bottom: 1.25em;
+  margin-bottom: 0.25em;
   font-weight: bold;
   font-size: calc(var(--font-scaling) * 1.25rem);
 }
 
+.technologies {
+  @include rest-ul;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: calc(var(--font-scaling) * 1.25rem * 1.25);
+}
+
+.technology {
+}
+
 .link {
   position: relative;
-  margin: -1px;
+  margin: -2px;
   text-decoration: none;
 }
 

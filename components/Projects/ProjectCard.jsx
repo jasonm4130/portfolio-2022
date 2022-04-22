@@ -3,6 +3,8 @@ import React from 'react';
 import {
   card,
   title,
+  technologies,
+  technology,
   exerpt,
   link,
   arrow,
@@ -16,6 +18,13 @@ export default function ProjectCard({ project }) {
       <a className={link}>
         <article className={card}>
           <div className={title}>{project.title}</div>
+          <ul className={technologies}>
+            {project.technologies.map((technologyString) => (
+              <li key={technologyString} className={technology}>
+                {technologyString}
+              </li>
+            ))}
+          </ul>
           <p className={exerpt}>{project.exerpt}</p>
           <div className={arrowWrapper}>
             <ArrowRight className={arrow} />

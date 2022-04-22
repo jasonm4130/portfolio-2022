@@ -1,0 +1,42 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.container {
+  --card-font: var(--font-colour);
+  --card-bg: var(--bg-colour);
+  position: relative;
+  width: 100%;
+  margin: -2px;
+  padding: 32px 32px;
+  color: var(--card-font);
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-font);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    --card-font: var(--bg-colour);
+    --card-bg: var(--font-colour);
+    border: 2px solid var(--card-bg);
+  }
+}
+
+.title {
+  font-size: calc(var(--font-scaling) * 1.25rem);
+}
+
+.exerpt {
+}
+
+.date {
+}
+
+.icon {
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  width: auto;
+  height: 48px;
+  transition: fill 0.3s ease-in-out;
+  fill: var(--card-font);
+}
