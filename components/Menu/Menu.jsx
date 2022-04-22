@@ -10,6 +10,7 @@ import {
   listItemActive,
   listItemLink,
   logo,
+  logoLink,
   button,
   themeToggle,
 } from './menu.module.scss';
@@ -25,7 +26,7 @@ export default function Menu() {
       link: '/',
     },
     { name: 'About' },
-    { name: 'Portfolio' },
+    { name: 'Projects' },
     { name: 'Articles' },
     { name: 'Contact' },
   ];
@@ -43,7 +44,11 @@ export default function Menu() {
 
   return (
     <nav className={nav}>
-      <Logo className={logo} />
+      <Link href="/">
+        <a className={logoLink}>
+          <Logo className={logo} />
+        </a>
+      </Link>
       <ul className={`${list} ${isOpen ? listOpen : ''}`}>
         {items.map((item) => {
           let href = `/${item.name.toLowerCase()}`;

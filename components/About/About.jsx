@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { section, title, link, content } from './about.module.scss';
+import ArrowIcon from '../../public/arrow-right.svg';
 
 function getRedableTime(ms) {
   let miliseconds = Math.floor(ms);
@@ -89,7 +90,9 @@ export default function About() {
           game.
         </p>
         <Link href="/about">
-          <a className={link}>More about me</a>
+          <a className="primary-cta">
+            More about me <ArrowIcon className="primary-cta__icon" />
+          </a>
         </Link>
       </div>
     </section>

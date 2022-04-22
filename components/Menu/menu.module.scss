@@ -94,11 +94,15 @@
 }
 
 .logo {
-  order: 0;
-  max-width: 150px;
+  width: 150px;
   height: auto;
-  margin-right: auto;
   fill: var(--font-colour);
+  &Link {
+    @include reset-link;
+    display: block;
+    order: 0;
+    margin-right: auto;
+  }
 }
 
 .button {

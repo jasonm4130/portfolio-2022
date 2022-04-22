@@ -1,16 +1,13 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
 import Head from 'next/head';
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
-import remarkPrism from 'remark-prism';
 // Import styles for syntax highlighting
 import 'prismjs/themes/prism-tomorrow.css';
 import PropTypes from 'prop-types';
 import { article } from '../../styles/article.module.scss';
+import getPaths from '../../lib/getPaths';
+import getFileMarkdown from '../../lib/getFileMarkdown';
 
 export default function Article({ title, content }) {
   return (
@@ -24,21 +21,8 @@ export default function Article({ title, content }) {
 }
 
 export async function getStaticPaths() {
-  // Get all of the articles
-  const files = fs.readdirSync(path.join('articles'));
-
   // Get the articles paths from the file name
-  const paths = files.map((fileName) => {
-    // Get the slug from the article
-    const [slug] = fileName.split('.');
-
-    // Return our params
-    return {
-      params: {
-        slug,
-      },
-    };
-  });
+  const paths = await getPaths('articles');
 
   return {
     paths,
@@ -52,21 +36,7 @@ Article.propTypes = {
 };
 
 export async function getStaticProps({ params: { slug } }) {
-  const { content: markdown, data: frontmatter } = matter.read(
-    path.join('articles', `${slug}.mdx`)
-  );
+  const filePath = path.join('articles', `${slug}.mdx`);
 
-  const html = await remark()
-    .use(remarkHtml, { sanitize: false })
-    .use(remarkPrism)
-    .process(markdown);
-
-  const content = html.toString();
-
-  return {
-    props: {
-      content,
-      ...frontmatter,
-    },
-  };
+  return getFileMarkdown(filePath);
 }

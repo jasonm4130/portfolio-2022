@@ -9,8 +9,6 @@ import { getAllMarkdown } from '../lib/getMarkdown';
 import Articles from '../components/Articles/Articles';
 
 export default function Home({ statsData, projects, articles }) {
-  console.log(articles);
-
   return (
     <>
       <Head>
@@ -44,8 +42,6 @@ export async function getStaticProps() {
 
   // Get the articles
   const articles = await getAllMarkdown('articles');
-
-  console.log(articles);
 
   return {
     props: {

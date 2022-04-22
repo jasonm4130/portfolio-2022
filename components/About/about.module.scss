@@ -11,33 +11,3 @@
 .title {
   @include section-title;
 }
-
-.link {
-  position: relative;
-  display: inline-block;
-  padding: 16px 8px;
-  color: var(--bg-colour);
-  font-weight: bold;
-  text-decoration: none;
-  background-color: var(--accent-colour);
-  transition: background-color var(--transition);
-
-  &:after {
-    position: absolute;
-    bottom: 18px;
-    left: 8px;
-    width: 0;
-    height: 2px;
-    background-color: var(--bg-colour);
-    transition: width var(--transition);
-    content: "";
-  }
-
-  &:hover,
-  &:focus {
-    background-color: var(--secondary-colour);
-    &:after {
-      width: calc(100% - 16px);
-    }
-  }
-}

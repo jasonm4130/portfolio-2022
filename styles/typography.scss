@@ -71,3 +71,27 @@ small,
 .small {
   font-size: calc(var(--font-scaling) * 0.8rem);
 }
+
+a {
+  position: relative;
+  color: var(--primary-colour);
+  text-decoration: none;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease-in-out;
+    content: "";
+  }
+
+  &:hover,
+  &:focus {
+    &:after {
+      width: 100%;
+    }
+  }
+}

@@ -30,6 +30,20 @@
   list-style-type: none;
 }
 
+@mixin reset-link {
+  &:before,
+  &:after {
+    content: unset;
+  }
+  &:hover,
+  &:focus {
+    &:before,
+    &:after {
+      content: unset;
+    }
+  }
+}
+
 @mixin section {
   max-width: var(--max-width);
   margin: 48px auto;

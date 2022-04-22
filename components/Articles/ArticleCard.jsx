@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import ArrowIcon from '../../public/arrow-right.svg';
 import {
@@ -6,6 +7,7 @@ import {
   exerpt,
   date,
   icon,
+  link,
 } from './article-card.module.scss';
 
 export default function ArticleCard({ article }) {
@@ -21,11 +23,15 @@ export default function ArticleCard({ article }) {
   );
 
   return (
-    <article className={container}>
-      <div className={title}>{article.title}</div>
-      <div className={date}>{dateFormatted}</div>
-      <p className={exerpt}>{article.exerpt}</p>
-      <ArrowIcon className={icon} />
-    </article>
+    <Link href={article.link}>
+      <a className={link}>
+        <article className={container}>
+          <div className={title}>{article.title}</div>
+          <div className={date}>{dateFormatted}</div>
+          <p className={exerpt}>{article.exerpt}</p>
+          <ArrowIcon className={icon} />
+        </article>
+      </a>
+    </Link>
   );
 }
