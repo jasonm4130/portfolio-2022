@@ -5,7 +5,7 @@ import HeroBanner from '../components/HeroBanner/HeroBanner';
 import Skills from '../components/Skills/Skills';
 import About from '../components/About/About';
 import Projects from '../components/Projects/Projects';
-import { getAllMarkdown } from '../lib/getMarkdown';
+import { getAllMarkdown } from '../lib/getAllMarkdown';
 import Articles from '../components/Articles/Articles';
 
 export default function Home({ statsData, projects, articles }) {

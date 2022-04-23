@@ -14,7 +14,7 @@ import ArrowRight from '../../public/arrow-right.svg';
 
 export default function ProjectCard({ project }) {
   return (
-    <Link href="/">
+    <Link href={project.link}>
       <a className={link}>
         <article className={card}>
           <div className={title}>{project.title}</div>
