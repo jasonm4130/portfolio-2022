@@ -41,6 +41,7 @@
 }
 
 .link {
+  @include reset-link;
   position: relative;
   margin: -2px;
   text-decoration: none;

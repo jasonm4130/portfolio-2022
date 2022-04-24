@@ -16,10 +16,10 @@ html {
 
 body {
   color: var(--font-colour);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   background-color: var(--bg-colour);
 }
 
 main {
-  padding: var(--main-padding-x);
+  padding: var(--main-padding-y) var(--main-padding-x);
 }

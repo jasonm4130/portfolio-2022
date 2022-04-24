@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 import Menu from './Menu/Menu';
 
 export default function Layout({ children }) {

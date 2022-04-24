@@ -44,6 +44,13 @@
   }
 }
 
+@mixin reset-input {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
 @mixin section {
   max-width: var(--max-width);
   margin: 48px auto;

@@ -1,0 +1,124 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.section {
+  @include section;
+  @include media-tablet-up {
+    display: grid;
+    grid-template-areas:
+      "content ."
+      "social form"
+      "copyright copyright";
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  gap: 48px;
+  padding: 80px var(--main-padding-x) var(--main-padding-y);
+}
+
+.content {
+  grid-area: content;
+}
+
+.social {
+  grid-area: social;
+  margin-bottom: 48px;
+}
+
+.title {
+  @include section-title;
+}
+
+.subTitle {
+  @include section-title;
+  font-size: calc(var(--font-scaling) * 1rem);
+}
+
+.form {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-top: 1.75em;
+    margin-bottom: 0.5em;
+    &:first-of-type {
+      margin-top: 0;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  input,
+  textarea {
+    @include reset-input;
+    padding: 1em 0.75em;
+    color: var(--bg-colour);
+    background-color: var(--font-colour);
+  }
+  textarea {
+    height: 8em;
+  }
+}
+
+.submit {
+  @include reset-button;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 1rem;
+  color: var(--font-colour);
+  border: 0.125rem solid var(--font-colour);
+  cursor: pointer;
+}
+
+.submitIcon {
+  width: auto;
+  height: 2em;
+}
+
+.submitWrapper {
+  margin-top: 1.75em;
+}
+
+.formWrapper {
+  position: relative;
+  top: 6px;
+  left: 6px;
+  grid-area: form;
+  margin: 48px auto;
+  padding: 32px 32px 48px;
+  @include media-tablet-up {
+    margin: 0;
+  }
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--font-colour);
+    content: "";
+  }
+  &:before {
+    top: -12px;
+    left: -12px;
+  }
+}
+
+.socialList {
+  @include rest-ul;
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.link {
+  color: var(--font-colour);
+}
+
+.copyright {
+  grid-area: copyright;
+  text-align: right;
+}

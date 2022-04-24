@@ -42,5 +42,6 @@
 }
 
 .link {
+  @include reset-link;
   text-decoration: none;
 }
