@@ -5,8 +5,9 @@ import HeroBanner from '../components/HeroBanner/HeroBanner';
 import Skills from '../components/Skills/Skills';
 import About from '../components/About/About';
 import Projects from '../components/Projects/Projects';
-import { getAllMarkdown } from '../lib/getAllMarkdown';
 import Articles from '../components/Articles/Articles';
+import getMostRecentArticles from '../lib/getMostRecentArticles';
+import getFeaturedProjects from '../lib/getFeaturedProjects';
 
 export default function Home({ statsData, projects, articles }) {
   return (
@@ -38,10 +39,10 @@ export async function getStaticProps() {
   );
 
   // Get the projects
-  const projects = await getAllMarkdown('projects');
+  const projects = await getFeaturedProjects();
 
   // Get the articles
-  const articles = await getAllMarkdown('articles');
+  const articles = await getMostRecentArticles(3);
 
   return {
     props: {

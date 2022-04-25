@@ -1,0 +1,15 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  margin-top: 48px;
+  @include media-tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media-desktop-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

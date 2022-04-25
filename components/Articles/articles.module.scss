@@ -24,6 +24,9 @@
 }
 
 .grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
   @include media-tablet-up {
     width: 65%;
   }

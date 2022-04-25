@@ -10,7 +10,7 @@ import {
   link,
 } from './article-card.module.scss';
 
-export default function ArticleCard({ article }) {
+export default function ArticleCard({ article, className }) {
   const dateOptions = {
     year: 'numeric',
     month: 'long',
@@ -24,7 +24,7 @@ export default function ArticleCard({ article }) {
 
   return (
     <Link href={article.link}>
-      <a className={link}>
+      <a className={`${link} ${className}`}>
         <article className={container}>
           <div className={title}>{article.title}</div>
           <div className={date}>{dateFormatted}</div>
