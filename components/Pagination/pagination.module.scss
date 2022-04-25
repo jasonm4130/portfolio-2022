@@ -1,0 +1,43 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.nav {
+}
+
+.list {
+  @include rest-ul;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.button {
+  --button-font: var(--font-colour);
+  --button-bg: var(--bg-colour);
+  @include reset-button;
+  padding: 0.75em 1.25em;
+  color: var(--button-font);
+  background-color: var(--button-bg);
+  border: 2px solid var(--button-font);
+  cursor: pointer;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  &:hover,
+  &:focus {
+    --button-font: var(--bg-colour);
+    --button-bg: var(--font-colour);
+    border: 2px solid var(--button-bg);
+  }
+}
+
+.buttonCurrent {
+  color: var(--button-bg);
+  background-color: var(--button-font);
+  &:hover,
+  &:focus {
+    border: 2px solid var(--button-bg);
+  }
+}
+
+.dots {
+  padding: 0.75em 1.25em;
+}

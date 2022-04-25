@@ -1,26 +1,84 @@
-import Link from 'next/link';
 import React from 'react';
-import { nav, list, listItem, link } from './pagination.module.scss';
+import { usePagination, DOTS } from '../../lib/usePagination';
+import {
+  nav,
+  list,
+  button,
+  buttonCurrent,
+  dots,
+} from './pagination.module.scss';
 
 export default function Pagination({
-  totalPageCount,
-  siblingCount,
+  onPageChange,
+  totalCount,
+  siblingCount = 1,
   currentPage,
-  linkPrefix,
+  pageSize,
+  className,
 }) {
+  const paginationRange = usePagination({
+    currentPage,
+    totalCount,
+    siblingCount,
+    pageSize,
+  });
+
+  if (currentPage === 0 || paginationRange.length < 2) {
+    return null;
+  }
+
+  const onNext = () => {
+    onPageChange(currentPage + 1);
+  };
+
+  const onPrevious = () => {
+    onPageChange(currentPage - 1);
+  };
+
+  const lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <nav className={nav}>
+    <nav className={`${nav} ${className}`}>
       <ul className={list}>
-        {listArray.map((pageIndex) => (
-          <Link key={pageIndex} href={`${linkPrefix}${pageIndex}`}>
-            <li className={listItem}>
-              <a className={link}>
-                <span className="sr-only">Go to page</span>
-                {pageIndex}
-              </a>
+        <li>
+          <button
+            onClick={onPrevious}
+            type="button"
+            className={button}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+        </li>
+        {paginationRange.map((pageNumber) => {
+          if (pageNumber === DOTS) {
+            return <li className={dots}>&#8230;</li>;
+          }
+
+          return (
+            <li>
+              <button
+                onClick={() => onPageChange(pageNumber)}
+                type="button"
+                className={`${button} ${
+                  pageNumber === currentPage ? buttonCurrent : ''
+                }`}
+              >
+                <span className="sr-only">Go to </span>
+                {pageNumber}
+              </button>
             </li>
-          </Link>
-        ))}
+          );
+        })}
+        <li>
+          <button
+            onClick={onNext}
+            type="button"
+            className={button}
+            disabled={currentPage === lastPage}
+          >
+            Next
+          </button>
+        </li>
       </ul>
     </nav>
   );

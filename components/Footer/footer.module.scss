@@ -13,6 +13,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
   gap: 48px;
+  width: 100%;
+  max-width: unset;
   padding: 80px var(--main-padding-x) var(--main-padding-y);
 }
 
