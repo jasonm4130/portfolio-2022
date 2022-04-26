@@ -1,9 +1,6 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
 
-.nav {
-}
-
 .list {
   @include rest-ul;
   display: flex;
