@@ -39,5 +39,5 @@ Article.propTypes = {
 export async function getStaticProps({ params: { slug } }) {
   const filePath = path.join(PROJECTS_PATH, `${slug}.mdx`);
 
-  return { props: getFileMarkdown(filePath) };
+  return { props: await getFileMarkdown(filePath) };
 }
