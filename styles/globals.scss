@@ -23,3 +23,15 @@ body {
 main {
   padding: var(--main-padding-y) var(--main-padding-x);
 }
+
+// Conditionally render the syntax highlighting based on the selected theme
+[data-theme="dark"],
+[data-theme="system"] {
+  /* stylelint-disable-next-line no-invalid-position-at-import-rule */
+  @import "~highlight.js/styles/stackoverflow-dark";
+}
+
+[data-theme="light"] {
+  /* stylelint-disable-next-line no-invalid-position-at-import-rule */
+  @import "~highlight.js/styles/stackoverflow-light";
+}

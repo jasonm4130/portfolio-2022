@@ -25,44 +25,38 @@ p {
 }
 
 h1,
-.h1,
-%h1 {
+.h1 {
   @extend %heading;
   margin-top: 0;
   font-size: calc(var(--font-scaling) * 3.052rem);
 }
 
 h2,
-.h2,
-%h2 {
+.h2 {
   @extend %heading;
   font-size: calc(var(--font-scaling) * 2.441rem);
 }
 
 h3,
-.h3,
-%h3 {
+.h3 {
   @extend %heading;
   font-size: calc(var(--font-scaling) * 1.953rem);
 }
 
 h4,
-.h4,
-%h4 {
+.h4 {
   @extend %heading;
   font-size: calc(var(--font-scaling) * 1.563rem);
 }
 
 h5,
-.h5,
-%h5 {
+.h5 {
   @extend %heading;
   font-size: calc(var(--font-scaling) * 1.25rem);
 }
 
 h6,
-.h6,
-%h6 {
+.h6 {
   @extend %heading;
   font-size: calc(var(--font-scaling) * 1rem);
 }

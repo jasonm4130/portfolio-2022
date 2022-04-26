@@ -2,8 +2,6 @@
 import React from 'react';
 import path from 'path';
 import Head from 'next/head';
-// Import styles for syntax highlighting
-import 'prismjs/themes/prism-tomorrow.css';
 import PropTypes from 'prop-types';
 import { article } from '../../styles/article.module.scss';
 import getPaths from '../../lib/getPaths';
