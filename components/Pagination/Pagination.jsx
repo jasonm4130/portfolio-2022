@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { usePagination, DOTS } from '../../lib/usePagination';
 import {
   nav,
@@ -83,3 +84,12 @@ export default function Pagination({
     </nav>
   );
 }
+
+Pagination.propTypes = {
+  onPageChange: PropTypes.func,
+  totalCount: PropTypes.number,
+  siblingCount: PropTypes.number,
+  currentPage: PropTypes.number,
+  pageSize: PropTypes.number,
+  className: PropTypes.string,
+};

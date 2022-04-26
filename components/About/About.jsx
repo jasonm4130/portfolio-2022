@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { section, title, link, content } from './about.module.scss';
+import { section, title, content } from './about.module.scss';
 import ArrowIcon from '../../public/arrow-right.svg';
 
 function getRedableTime(ms) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { grid } from './article-listing.module.scss';
 import ArticleCard from '../Articles/ArticleCard';
 
@@ -11,3 +12,14 @@ export default function ArticleListing({ articles }) {
     </div>
   );
 }
+
+ArticleListing.propTypes = {
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      exerpt: PropTypes.string,
+      link: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};

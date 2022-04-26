@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ArrowIcon from '../../public/arrow-right.svg';
 import {
   container,
@@ -35,3 +36,13 @@ export default function ArticleCard({ article, className }) {
     </Link>
   );
 }
+
+ArticleCard.propTypes = {
+  article: PropTypes.shape({
+    date: PropTypes.string,
+    exerpt: PropTypes.string,
+    link: PropTypes.string,
+    title: PropTypes.string,
+  }),
+  className: PropTypes.string,
+};

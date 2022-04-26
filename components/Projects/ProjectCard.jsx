@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   card,
   title,
@@ -34,3 +35,13 @@ export default function ProjectCard({ project }) {
     </Link>
   );
 }
+
+ProjectCard.propTypes = {
+  project: PropTypes.shape({
+    title: PropTypes.string,
+    featured: PropTypes.bool,
+    link: PropTypes.string,
+    technologies: PropTypes.arrayOf(PropTypes.string),
+    exerpt: PropTypes.string,
+  }),
+};

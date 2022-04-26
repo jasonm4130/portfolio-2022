@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProjectCard from './ProjectCard';
 import { section, title, grid, intro } from './projects.module.scss';
 
@@ -25,3 +26,15 @@ export default function Projects({ projects }) {
     </section>
   );
 }
+
+Projects.propTypes = {
+  projects: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      featured: PropTypes.bool,
+      link: PropTypes.string,
+      technologies: PropTypes.arrayOf(PropTypes.string),
+      exerpt: PropTypes.string,
+    })
+  ),
+};

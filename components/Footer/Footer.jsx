@@ -63,10 +63,10 @@ export default function Footer() {
       <div className={social}>
         <h3 className={subTitle}>Follow me on</h3>
         <ul className={socialList}>
-          {socials.map((social) => (
-            <li key={social.name} className={socialListItem}>
-              <Link href={social.link}>
-                <a className={link}>{social.name}</a>
+          {socials.map((socialItem) => (
+            <li key={socialItem.name} className={socialListItem}>
+              <Link href={socialItem.link}>
+                <a className={link}>{socialItem.name}</a>
               </Link>
             </li>
           ))}

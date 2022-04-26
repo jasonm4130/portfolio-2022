@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import Layout from '../components/Layout';
 import '../styles/globals.scss';

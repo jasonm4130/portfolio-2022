@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import PropTypes from 'prop-types';
 import { title, grid } from './articles.module.scss';
 import { getAllMarkdown } from '../../lib/getAllMarkdown';
 import { ARTICLES_PATH } from '../../lib/consts';
@@ -7,7 +8,7 @@ import ArticleCard from '../../components/Articles/ArticleCard';
 
 const ARTICLES_PER_PAGE = 10;
 
-export default function Articles({ articles }) {
+export default function ArticlesPage({ articles }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentArticles = useMemo(() => {
@@ -21,7 +22,7 @@ export default function Articles({ articles }) {
       <h1 className={title}>Articles</h1>
       <div className={grid}>
         {currentArticles.map((article) => (
-          <ArticleCard article={article} />
+          <ArticleCard key={article.title} article={article} />
         ))}
       </div>
       <Pagination
@@ -33,6 +34,17 @@ export default function Articles({ articles }) {
     </main>
   );
 }
+
+ArticlesPage.propTypes = {
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      exerpt: PropTypes.string,
+      link: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};
 
 export async function getStaticProps() {
   // Get the files that we want to display

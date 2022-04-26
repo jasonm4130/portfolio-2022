@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import ArticleCard from './ArticleCard';
 import { section, title, intro, content, grid } from './articles.module.scss';
 import ArrowIcon from '../../public/arrow-right.svg';
@@ -27,3 +28,14 @@ export default function Articles({ articles }) {
     </section>
   );
 }
+
+Articles.propTypes = {
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      exerpt: PropTypes.string,
+      link: PropTypes.string,
+      title: PropTypes.string,
+    })
+  ),
+};
