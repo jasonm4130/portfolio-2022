@@ -1,14 +1,28 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import { title, grid } from './articles.module.scss';
 import { getAllMarkdown } from '../../lib/getAllMarkdown';
-import { ARTICLES_PATH } from '../../lib/consts';
+import {
+  ARTICLES_PATH,
+  DESKTOP_BREAKPOINT,
+  TABLET_BREAKPOINT,
+} from '../../lib/consts';
 import Pagination from '../../components/Pagination/Pagination';
 import ArticleCard from '../../components/Articles/ArticleCard';
 
-const ARTICLES_PER_PAGE = 10;
-
 export default function ArticlesPage({ articles }) {
+  // Default number of articles to display per page on mobile
+  let ARTICLES_PER_PAGE = 6;
+
+  if (useMediaQuery({ query: TABLET_BREAKPOINT })) {
+    ARTICLES_PER_PAGE = 8;
+  }
+
+  if (useMediaQuery({ query: DESKTOP_BREAKPOINT })) {
+    ARTICLES_PER_PAGE = 12;
+  }
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentArticles = useMemo(() => {
