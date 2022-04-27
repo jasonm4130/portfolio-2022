@@ -29,7 +29,7 @@ export default function ArticlesPage({ articles }) {
     const firstPageIndex = (currentPage - 1) * ARTICLES_PER_PAGE;
     const lastPageIndex = firstPageIndex + ARTICLES_PER_PAGE;
     return articles.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, articles]);
+  }, [currentPage, articles, ARTICLES_PER_PAGE]);
 
   return (
     <main>
