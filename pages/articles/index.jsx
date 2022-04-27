@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import { title, grid } from './articles.module.scss';
+import { title, intro, grid } from './articles.module.scss';
 import { getAllMarkdown } from '../../lib/getAllMarkdown';
 import {
   ARTICLES_PATH,
@@ -34,6 +34,13 @@ export default function ArticlesPage({ articles }) {
   return (
     <main>
       <h1 className={title}>Articles</h1>
+      <p className={intro}>
+        Check out my recent articles. I mostly use this as a place to share
+        things that I have found useful or to write down my own thoughts on
+        particular topics. I like so many others continue to learn and as such
+        these items only really represent my viewpoint at a particular point in
+        time.
+      </p>
       <div className={grid}>
         {currentArticles.map((article) => (
           <ArticleCard key={article.title} article={article} />

@@ -5,6 +5,10 @@
   @include section-title;
 }
 
+.intro {
+  @include section-intro;
+}
+
 .grid {
   display: grid;
   grid-template-rows: auto;

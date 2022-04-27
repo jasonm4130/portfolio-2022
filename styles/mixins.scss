@@ -83,3 +83,7 @@
     content: "";
   }
 }
+
+@mixin section-intro {
+  max-width: var(--max-content-width);
+}
