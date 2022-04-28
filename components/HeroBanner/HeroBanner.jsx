@@ -27,7 +27,12 @@ export default function HeroBanner() {
       </div>
       <div className={imageContainer}>
         <div className={imageWrapper}>
-          <Image className={image} src={HeroImage} layout="responsive" />
+          <Image
+            className={image}
+            src={HeroImage}
+            layout="responsive"
+            priority
+          />
         </div>
       </div>
     </section>
