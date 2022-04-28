@@ -1,5 +1,5 @@
 import React from 'react';
-import CloudflareImage from '../CloudflareImage';
+import Image from 'next/image';
 import {
   section,
   image,
@@ -27,11 +27,7 @@ export default function HeroBanner() {
       </div>
       <div className={imageContainer}>
         <div className={imageWrapper}>
-          <CloudflareImage
-            className={image}
-            src={HeroImage}
-            layout="responsive"
-          />
+          <Image className={image} src={HeroImage} layout="responsive" />
         </div>
       </div>
     </section>
