@@ -10,11 +10,6 @@ const nextConfig = {
 
     return config;
   },
-  // Fake loader to compile static
-  images: {
-    loader: 'imgix',
-    path: '',
-  },
 };
 
 module.exports = nextConfig;
