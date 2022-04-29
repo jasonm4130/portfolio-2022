@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PROJECTS_PATH } from '../../lib/consts';
-import { getAllFrontmatter } from '../../lib/getAllFrontmatter';
+import getAllFrontmatter from '../../lib/getAllFrontmatter';
 import ProjectCard from '../../components/Projects/ProjectCard';
 import { title, intro, grid } from './projects.module.scss';
 

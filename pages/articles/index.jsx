@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { title, intro, grid } from './articles.module.scss';
-import { getAllMarkdown } from '../../lib/getAllMarkdown';
+import getAllMarkdown from '../../lib/getAllMarkdown';
 import {
   ARTICLES_PATH,
   DESKTOP_BREAKPOINT,
@@ -10,6 +10,7 @@ import {
 } from '../../lib/consts';
 import Pagination from '../../components/Pagination/Pagination';
 import ArticleCard from '../../components/Articles/ArticleCard';
+import sortByDate from '../../lib/sortByDate';
 
 export default function ArticlesPage({ articles }) {
   // Default number of articles to display per page on mobile
@@ -71,8 +72,11 @@ export async function getStaticProps() {
   // Get the files that we want to display
   let articles = await getAllMarkdown(ARTICLES_PATH);
 
+  // Sort the articles by date
+  const sortedArticles = await sortByDate(articles);
+
   // Remove the content from the filesToDisplay array
-  articles = articles.map((article) => ({
+  articles = sortedArticles.map((article) => ({
     ...article,
     content: null,
   }));
