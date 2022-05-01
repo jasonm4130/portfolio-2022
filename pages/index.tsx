@@ -9,12 +9,21 @@ import getMostRecentArticles from '../lib/getMostRecentArticles';
 import getFeaturedProjects from '../lib/getFeaturedProjects';
 import { MarkdownFileContent } from '../lib/interfaces';
 
+type LanguageData = {
+  languages: {
+    [key: string]: {
+      xps: number;
+      new_xps: number;
+    };
+  };
+};
+
 export default function Home({
   statsData,
   projects,
   articles,
 }: {
-  statsData: object;
+  statsData: LanguageData;
   projects: MarkdownFileContent[];
   articles: MarkdownFileContent[];
 }) {
@@ -35,7 +44,9 @@ export default function Home({
 }
 
 type CodeStatsResponse = {
-  data: object;
+  data: {
+    LanguageData;
+  };
 };
 
 export async function getStaticProps() {
