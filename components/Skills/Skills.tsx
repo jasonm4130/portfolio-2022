@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes, { string } from 'prop-types';
 import axios from 'axios';
 import styles from './skills.module.scss';
 import SkillCard from './SkillCard';
 
-export default function Skills({ statsData }: { statsData: any }) {
+interface ResponseData {
+  languages: {
+    [key: string]: {
+      xps: number;
+      new_xps: number;
+    };
+  };
+}
+
+export default function Skills({ statsData }: { statsData: ResponseData }) {
   // Set the stats data to the initial data
   const [statsDataState, setStatsDataState] = useState(statsData);
 
   // Get the new stats when the component mounts
   useEffect(() => {
     axios.get('https://codestats.net/api/users/jasonm4130').then((response) => {
-      setStatsDataState(response.data as any);
+      setStatsDataState(response.data as ResponseData);
     });
   }, []);
 
@@ -19,8 +27,8 @@ export default function Skills({ statsData }: { statsData: any }) {
 
   if (statsDataState.languages) {
     languagesArray = Object.keys(statsDataState.languages)
-      .map((name) => {
-        // eslint-disable-next-line camelcase
+      .map((name: string) => {
+        // eslint-disable-next-line camelcase, @typescript-eslint/naming-convention
         const { xps, new_xps } = statsDataState.languages[name];
 
         return {
@@ -47,14 +55,12 @@ export default function Skills({ statsData }: { statsData: any }) {
         </p>
       </div>
       <div className={styles.grid}>
-        {languagesArray.map((language) => (
-          <SkillCard key={language.name} language={language} />
-        ))}
+        {languagesArray.map(
+          (language: { name: string; xps: number; newXps: number }) => (
+            <SkillCard key={language.name} language={language} />
+          )
+        )}
       </div>
     </section>
   );
 }
-
-Skills.propTypes = {
-  statsData: PropTypes.object,
-};
