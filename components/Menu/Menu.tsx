@@ -2,18 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Logo from '../Logo';
-import {
-  nav,
-  list,
-  listOpen,
-  listItem,
-  listItemActive,
-  listItemLink,
-  logo,
-  logoLink,
-  button,
-  themeToggle,
-} from './menu.module.scss';
+import styles from './menu.module.scss';
 import MenuBurger from './Menu-Burger';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
@@ -43,37 +32,38 @@ export default function Menu() {
   });
 
   return (
-    <nav className={nav}>
+    <nav className={styles.nav}>
       <Link href="/">
-        <a className={logoLink}>
-          <Logo className={logo} />
+        <a className={styles.logoLink}>
+          <Logo className={styles.logo} />
         </a>
       </Link>
-      <ul className={`${list} ${isOpen ? listOpen : ''}`}>
+      <ul className={`${styles.list} ${isOpen ? styles.listOpen : ''}`}>
         {items.map((item) => {
-          let href = `/${item.name.toLowerCase()}`;
-          if (item.link) {
-            href = item.link;
+          const { link, name } = item;
+          let href = `/${name.toLowerCase()}`;
+          if (link) {
+            href = link;
           }
 
-          const classList = [listItem];
+          const classList = [styles.listItem];
 
           if (pathname === href) {
-            classList.push(listItemActive);
+            classList.push(styles.listItemActive);
           }
 
           return (
-            <li key={item.name} className={classList.join(' ')}>
+            <li key={name} className={classList.join(' ')}>
               <Link href={href}>
-                <a className={listItemLink}>{item.name}</a>
+                <a className={styles.listItemLink}>{name}</a>
               </Link>
             </li>
           );
         })}
       </ul>
-      <ThemeToggle className={themeToggle} />
+      <ThemeToggle className={styles.themeToggle} />
       <button
-        className={button}
+        className={styles.button}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >

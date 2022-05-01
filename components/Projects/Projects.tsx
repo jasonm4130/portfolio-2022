@@ -1,15 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ProjectCard from './ProjectCard';
-import { section, title, grid, intro } from './projects.module.scss';
+import styles from './projects.module.scss';
+import { MarkdownFileContent } from '../../lib/interfaces';
 
-export default function Projects({ projects }) {
+export default function Projects({
+  projects,
+}: {
+  projects: MarkdownFileContent[];
+}) {
   return (
-    <section className={section}>
-      <div className={grid}>
+    <section className={styles.section}>
+      <div className={styles.grid}>
         <div>
-          <h2 className={title}>Projects</h2>
-          <p className={intro}>
+          <h2 className={styles.title}>Projects</h2>
+          <p className={styles.intro}>
             Like so many engineers, a lot of my work is hidden behind portal
             logins or is just not able to be shown to the public due to various
             contractual arangements. What you will find here are some of the
@@ -26,15 +30,3 @@ export default function Projects({ projects }) {
     </section>
   );
 }
-
-Projects.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      featured: PropTypes.bool,
-      link: PropTypes.string,
-      technologies: PropTypes.arrayOf(PropTypes.string),
-      exerpt: PropTypes.string,
-    })
-  ),
-};

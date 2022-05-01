@@ -1,48 +1,38 @@
 import Link from 'next/link';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { MarkdownFileContent } from '../../lib/interfaces';
 import ArrowIcon from '../../public/arrow-right.svg';
-import {
-  container,
-  title,
-  exerpt,
-  date,
-  icon,
-  link,
-} from './article-card.module.scss';
+import styles from './article-card.module.scss';
 
-export default function ArticleCard({ article, className }) {
-  const dateOptions = {
+export default function ArticleCard({
+  article,
+  className,
+}: {
+  article: MarkdownFileContent;
+  className?: string;
+}) {
+  const { date, link, title, exerpt } = article;
+  const dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   };
 
-  const dateFormatted = new Date(Date.parse(article.date)).toLocaleString(
+  const dateFormatted = new Date(Date.parse(date)).toLocaleString(
     'en-GB',
     dateOptions
   );
 
   return (
-    <Link href={article.link}>
+    <Link href={link}>
       <a className={`${link} ${className}`}>
-        <article className={container}>
-          <div className={title}>{article.title}</div>
-          <div className={date}>{dateFormatted}</div>
-          <p className={exerpt}>{article.exerpt}</p>
-          <ArrowIcon className={icon} />
+        <article className={styles.container}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.date}>{dateFormatted}</div>
+          <p className={styles.exerpt}>{exerpt}</p>
+          <ArrowIcon className={styles.icon} />
         </article>
       </a>
     </Link>
   );
 }
-
-ArticleCard.propTypes = {
-  article: PropTypes.shape({
-    date: PropTypes.string,
-    exerpt: PropTypes.string,
-    link: PropTypes.string,
-    title: PropTypes.string,
-  }),
-  className: PropTypes.string,
-};

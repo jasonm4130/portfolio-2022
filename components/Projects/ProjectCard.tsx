@@ -1,47 +1,33 @@
 import Link from 'next/link';
 import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  card,
-  title,
-  technologies,
-  technology,
-  exerpt,
-  link,
-  arrow,
-  arrowWrapper,
-} from './project-card.module.scss';
+import styles from './project-card.module.scss';
 import ArrowRight from '../../public/arrow-right.svg';
+import { MarkdownFileContent } from '../../lib/interfaces';
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({
+  project,
+}: {
+  project: MarkdownFileContent;
+}) {
+  const { link, title, technologies, exerpt } = project;
   return (
-    <Link href={project.link}>
-      <a className={link}>
-        <article className={card}>
-          <div className={title}>{project.title}</div>
-          <ul className={technologies}>
-            {project.technologies.map((technologyString) => (
-              <li key={technologyString} className={technology}>
-                {technologyString}
+    <Link href={link}>
+      <a className={styles.link}>
+        <article className={styles.card}>
+          <div className={styles.title}>{title}</div>
+          <ul className={styles.technologies}>
+            {technologies.map((technology) => (
+              <li key={technology} className={styles.technology}>
+                {technology}
               </li>
             ))}
           </ul>
-          <p className={exerpt}>{project.exerpt}</p>
-          <div className={arrowWrapper}>
-            <ArrowRight className={arrow} />
+          <p className={styles.exerpt}>{exerpt}</p>
+          <div className={styles.arrowWrapper}>
+            <ArrowRight className={styles.arrow} />
           </div>
         </article>
       </a>
     </Link>
   );
 }
-
-ProjectCard.propTypes = {
-  project: PropTypes.shape({
-    title: PropTypes.string,
-    featured: PropTypes.bool,
-    link: PropTypes.string,
-    technologies: PropTypes.arrayOf(PropTypes.string),
-    exerpt: PropTypes.string,
-  }),
-};

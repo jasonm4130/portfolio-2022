@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { section, title, content } from './about.module.scss';
+import styles from './about.module.scss';
 import ArrowIcon from '../../public/arrow-right.svg';
 
-function getRedableTime(ms) {
+function getRedableTime(ms: number) {
   let miliseconds = Math.floor(ms);
   let seconds = Math.floor(ms / 1000);
   let minutes = Math.floor(seconds / 60);
@@ -49,8 +49,11 @@ export default function About() {
   useEffect(() => {
     const startingDate = new Date('01/11/2014');
     const nowDate = new Date();
-    const timeInIndustry = nowDate - startingDate;
-    setInterval(() => setIndustryInEpoch(Date.now() - startingDate), 100);
+    const timeInIndustry = nowDate.valueOf() - startingDate.valueOf();
+    setInterval(
+      () => setIndustryInEpoch(Date.now() - startingDate.valueOf()),
+      100
+    );
     const { days, weeks, months, years, decades } =
       getRedableTime(timeInIndustry);
     setTimePassed({
@@ -63,9 +66,9 @@ export default function About() {
   }, []);
 
   return (
-    <section className={section}>
-      <div className={content}>
-        <h2 className={title}>About Me</h2>
+    <section className={styles.section}>
+      <div className={styles.content}>
+        <h2 className={styles.title}>About Me</h2>
         <p>
           I'm a software engineer from Brisbane, Australia. I have been in the
           field in some shape or form for about{' '}

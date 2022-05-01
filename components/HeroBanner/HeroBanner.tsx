@@ -1,18 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import {
-  section,
-  image,
-  imageWrapper,
-  imageContainer,
-  content,
-} from './hero-banner.module.scss';
+import styles from './hero-banner.module.scss';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
 
 export default function HeroBanner() {
   return (
-    <section className={section}>
-      <div className={content}>
+    <section className={styles.section}>
+      <div className={styles.content}>
         <h1>
           I'm <span className="highlight">Jason</span> Matthew,
           <br />
@@ -25,10 +19,10 @@ export default function HeroBanner() {
           engineer.
         </p>
       </div>
-      <div className={imageContainer}>
-        <div className={imageWrapper}>
+      <div className={styles.imageContainer}>
+        <div className={styles.imageWrapper}>
           <Image
-            className={image}
+            className={styles.image}
             src={HeroImage}
             layout="responsive"
             priority

@@ -4,14 +4,14 @@ import axios from 'axios';
 import styles from './skills.module.scss';
 import SkillCard from './SkillCard';
 
-export default function Skills({ statsData }: { statsData: object }) {
+export default function Skills({ statsData }: { statsData: any }) {
   // Set the stats data to the initial data
   const [statsDataState, setStatsDataState] = useState(statsData);
 
   // Get the new stats when the component mounts
   useEffect(() => {
     axios.get('https://codestats.net/api/users/jasonm4130').then((response) => {
-      setStatsDataState(response.data as object);
+      setStatsDataState(response.data as any);
     });
   }, []);
 

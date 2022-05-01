@@ -1,22 +1,6 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import {
-  section,
-  content,
-  social,
-  title,
-  intro,
-  subTitle,
-  socialList,
-  socialListItem,
-  link,
-  copyright,
-  form,
-  formWrapper,
-  submit,
-  submitWrapper,
-  submitIcon,
-} from './footer.module.scss';
+import styles from './footer.module.scss';
 import ArrowIcon from '../../public/arrow-right.svg';
 
 export default function Footer() {
@@ -27,8 +11,12 @@ export default function Footer() {
     message: '',
   });
 
-  function handleFormChange(event) {
-    const { name, value } = event.target;
+  function handleFormChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = event.target as
+      | HTMLInputElement
+      | HTMLTextAreaElement;
     setFormState({ ...formState, [name]: value });
   }
 
@@ -52,29 +40,29 @@ export default function Footer() {
   ];
 
   return (
-    <footer className={section}>
-      <div className={content}>
-        <h2 className={title}>Stay in touch</h2>
-        <p className={intro}>
+    <footer className={styles.section}>
+      <div className={styles.content}>
+        <h2 className={styles.title}>Stay in touch</h2>
+        <p className={styles.intro}>
           While I'm not actively seeking work right now, I'm always happy to
           have a chat, feel free to get in touch.
         </p>
       </div>
-      <div className={social}>
-        <h3 className={subTitle}>Follow me on</h3>
-        <ul className={socialList}>
+      <div className={styles.social}>
+        <h3 className={styles.subTitle}>Follow me on</h3>
+        <ul className={styles.socialList}>
           {socials.map((socialItem) => (
-            <li key={socialItem.name} className={socialListItem}>
+            <li key={socialItem.name} className={styles.socialListItem}>
               <Link href={socialItem.link}>
-                <a className={link}>{socialItem.name}</a>
+                <a className={styles.link}>{socialItem.name}</a>
               </Link>
             </li>
           ))}
         </ul>
       </div>
-      <div className={formWrapper}>
+      <div className={styles.formWrapper}>
         <form
-          className={form}
+          className={styles.form}
           method="post"
           action="https://api.formcake.com/api/form/9222c758-0dfc-4823-b5af-239a62792900/submission"
         >
@@ -105,14 +93,15 @@ export default function Footer() {
             value={formState.message}
             required
           />
-          <div className={submitWrapper}>
-            <button className={`primary-cta ${submit}`} type="submit">
-              Say Hi <ArrowIcon className={`primary-cta__icon ${submitIcon}`} />
+          <div className={styles.submitWrapper}>
+            <button className={`primary-cta ${styles.submit}`} type="submit">
+              Say Hi{' '}
+              <ArrowIcon className={`primary-cta__icon ${styles.submitIcon}`} />
             </button>
           </div>
         </form>
       </div>
-      <div className={copyright}>
+      <div className={styles.copyright}>
         Jason Matthew, Copyright © {new Date().getFullYear()}
       </div>
     </footer>

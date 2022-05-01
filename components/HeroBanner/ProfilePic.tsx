@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function ProfilePic({ className }) {
+export default function ProfilePic({ className }: { className: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
