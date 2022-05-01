@@ -1,13 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { usePagination, DOTS } from '../../lib/usePagination';
-import {
-  nav,
-  list,
-  button,
-  buttonCurrent,
-  dots,
-} from './pagination.module.scss';
+import styles from './pagination.module.scss';
 
 export default function Pagination({
   onPageChange,
@@ -16,6 +9,13 @@ export default function Pagination({
   currentPage,
   pageSize,
   className,
+}: {
+  onPageChange: (number) => void;
+  totalCount: number;
+  siblingCount?: number;
+  currentPage: number;
+  pageSize: number;
+  className?: string;
 }) {
   const paginationRange = usePagination({
     currentPage,
@@ -38,21 +38,21 @@ export default function Pagination({
 
   const lastPage = paginationRange[paginationRange.length - 1];
   return (
-    <nav className={`${nav} ${className}`}>
-      <ul className={list}>
+    <nav className={`${styles.nav} ${className}`}>
+      <ul className={styles.list}>
         <li>
           <button
             onClick={onPrevious}
             type="button"
-            className={button}
+            className={styles.button}
             disabled={currentPage === 1}
           >
             Previous
           </button>
         </li>
-        {paginationRange.map((pageNumber) => {
+        {paginationRange.map((pageNumber: string | number) => {
           if (pageNumber === DOTS) {
-            return <li className={dots}>&#8230;</li>;
+            return <li className={styles.dots}>&#8230;</li>;
           }
 
           return (
@@ -60,8 +60,8 @@ export default function Pagination({
               <button
                 onClick={() => onPageChange(pageNumber)}
                 type="button"
-                className={`${button} ${
-                  pageNumber === currentPage ? buttonCurrent : ''
+                className={`${styles.button} ${
+                  pageNumber === currentPage ? styles.buttonCurrent : ''
                 }`}
               >
                 <span className="sr-only">Go to </span>
@@ -74,7 +74,7 @@ export default function Pagination({
           <button
             onClick={onNext}
             type="button"
-            className={button}
+            className={styles.button}
             disabled={currentPage === lastPage}
           >
             Next
@@ -84,12 +84,3 @@ export default function Pagination({
     </nav>
   );
 }
-
-Pagination.propTypes = {
-  onPageChange: PropTypes.func,
-  totalCount: PropTypes.number,
-  siblingCount: PropTypes.number,
-  currentPage: PropTypes.number,
-  pageSize: PropTypes.number,
-  className: PropTypes.string,
-};

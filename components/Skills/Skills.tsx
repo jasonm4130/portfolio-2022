@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import axios from 'axios';
-import { section, title, intro, grid } from './skills.module.scss';
+import styles from './skills.module.scss';
 import SkillCard from './SkillCard';
 
-export default function Skills({ statsData }) {
+export default function Skills({ statsData }: { statsData: object }) {
   // Set the stats data to the initial data
   const [statsDataState, setStatsDataState] = useState(statsData);
 
   // Get the new stats when the component mounts
   useEffect(() => {
     axios.get('https://codestats.net/api/users/jasonm4130').then((response) => {
-      setStatsDataState(response.data);
+      setStatsDataState(response.data as object);
     });
   }, []);
 
@@ -35,9 +35,9 @@ export default function Skills({ statsData }) {
   }
 
   return (
-    <section className={section}>
-      <div className={intro}>
-        <h2 className={title}>Hard Skills</h2>
+    <section className={styles.section}>
+      <div className={styles.intro}>
+        <h2 className={styles.title}>Hard Skills</h2>
         <p>
           A lot of portfolio sites have abitary skill rankings 5 stars in JS
           etc. I like data so I track my keystrokes in my code editor with a
@@ -46,7 +46,7 @@ export default function Skills({ statsData }) {
           languages and the number of keystrokes I have done in them.
         </p>
       </div>
-      <div className={grid}>
+      <div className={styles.grid}>
         {languagesArray.map((language) => (
           <SkillCard key={language.name} language={language} />
         ))}

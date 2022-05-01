@@ -1,15 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { PROJECTS_PATH } from '../../lib/consts';
 import getAllFrontmatter from '../../lib/getAllFrontmatter';
 import ProjectCard from '../../components/Projects/ProjectCard';
-import { title, intro, grid } from './projects.module.scss';
+import styles from './projects.module.scss';
+import { MarkdownFileContent } from '../../lib/interfaces';
 
-export default function ProjectsPage({ projects }) {
+export default function ProjectsPage({
+  projects,
+}: {
+  projects: MarkdownFileContent[];
+}) {
   return (
     <main>
-      <h1 className={title}>Projects</h1>
-      <div className={intro}>
+      <h1 className={styles.title}>Projects</h1>
+      <div className={styles.intro}>
         <p>
           These are a list of some of my recent side projects. Feel free to have
           a look around, the majority of them I will have done some kind of
@@ -27,7 +31,7 @@ export default function ProjectsPage({ projects }) {
           more from what goes wrong, or what doesn't work well.
         </p>
       </div>
-      <div className={grid}>
+      <div className={styles.grid}>
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}
@@ -36,19 +40,8 @@ export default function ProjectsPage({ projects }) {
   );
 }
 
-ProjectsPage.propTypes = {
-  projects: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      exerpt: PropTypes.string,
-      technologies: PropTypes.arrayOf(PropTypes.string),
-      featured: PropTypes.bool,
-    })
-  ),
-};
-
-export async function getStaticProps() {
-  const projects = await getAllFrontmatter(PROJECTS_PATH);
+export function getStaticProps() {
+  const projects = getAllFrontmatter(PROJECTS_PATH);
 
   return {
     props: {

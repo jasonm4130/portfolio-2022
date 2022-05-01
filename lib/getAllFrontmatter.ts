@@ -7,7 +7,7 @@ import getFileFrontmatter from './getFileFrontMatter';
  * @param {string} documentsPath - The path to get all the documents from
  * @returns {Object[]} - Returns an array of objects with the frontmatter and links
  */
-export default async function getAllFrontmatter(documentsPath) {
+export default function getAllFrontmatter(documentsPath: string) {
   // Get all the documents we want
   const files = fs.readdirSync(documentsPath);
 
@@ -16,5 +16,5 @@ export default async function getAllFrontmatter(documentsPath) {
     getFileFrontmatter(path.join(documentsPath, file))
   );
 
-  return Promise.all(documents);
+  return documents;
 }

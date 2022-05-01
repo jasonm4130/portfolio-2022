@@ -1,14 +1,17 @@
 import { ARTICLES_PATH } from './consts';
 import getAllFrontmatter from './getAllFrontmatter';
 import sortByDate from './sortByDate';
+import { MarkdownFileContent } from './interfaces';
 
 /**
  * Function that gets the n number of most recent articles (if not all articles have dates it simply returns the articles in the inital load order)
  * @param {number} numberOfArticlesToGet - The number of recent articles to get
  * @returns {object[]} - An array of article objects frontmatter
  */
-export default async function getMostRecentArticles(numberOfArticlesToGet) {
-  const articlesData = await getAllFrontmatter(ARTICLES_PATH);
+export default function getMostRecentArticles(numberOfArticlesToGet: number) {
+  const articlesData = getAllFrontmatter(
+    ARTICLES_PATH
+  ) as MarkdownFileContent[];
 
   let articlesArray = articlesData;
 

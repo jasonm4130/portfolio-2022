@@ -4,3 +4,47 @@ exerpt: A simple node script that runs a chron and sends me a text message when 
 technologies: ["NodeJS", "Twillio", "API"]
 featured: true
 ---
+
+# Fuel Notifier
+
+## Intro
+
+This is a simple Node JS application that queries a publically available API for local fuel prices and trends and then sends a text message via Twillio when the optimal time to buy for a location is.
+
+The driving factor behind this application was the fact that RACQ have an API that allows a user to look at this information via an applicaion or a website, however I would only use this when I needed to fill up the car. This meant that no matter if the advise was "Prices are high, wait if you can", or "Proces are low, buy now", I would ineviteably need to fill up the car either way. Obviously the price advise would help somewhat at deciding how much to put in, an ideal scenario however would be that I am able to fill up the car at the bottom end of the cycle every time.
+
+The obvious way to achieve this is to notify myself when this ideal time to fill up would be. The current RACQ applications did not allow for this, so I built my own application system. Please continue reading to see the obsticals that I hit as this was built out as well as the general process that I followed.
+
+## The Process
+
+### Reverse Engineering
+
+The first thing that I had to do was figure out where the applications and website RACQ provide this data on were getting the data from. This was a simple enough task and looking at the network tab when making a request via the web page for the current fuel trends suficed to find the endpoint and discover the prameters that would be needed to send to the endpoint to get the information back.
+
+The second part was a little trickier, the endpoint didn't return specific information but instead would return two number `priceFluctuation` and `priceIndicator`, these two numbers were integers between 1 and 2 and 0 and 3 respectively. With a `priceIndicator` value of 2 representing that the average price was good. I was able to figure this out through inspecting the source on the webpage and digging through the minified JS to find the specific return messages that I was seeing.
+
+With the endpoints recorded and the "key" to decode the recieved data from the endpoint I had all of the information I needed and could get to work on building the notification system.
+
+### Specifications
+
+After reverse engineering the information that I needed and confirming that I would be able to use it in the way that I wanted, I began to gater lose specifications.
+
+I knew:
+
+- I wanted the notifications to come to my phone
+- I wanted to be notified when the fuel price was at the low point in the cycle
+- I wanted to avoid sending many notifications (I would be paying for the after all)
+- I wanted to be conservative with the ammount that I hit the API, although publically accessible, I doubt that the teams running it would look kindly upon it being hit from a single IP multiple times a second. Additionally we are talking about fuel prices here which tend to trend in fortnightly cycles, the data isn't changing second by second or minuite by minuite, Additionally I wouldn't be rushing out imediately to fill up upon recieveing a notification, this is a scenario where close enough to the bottom was good enough, and optimising further would probably only result in a few extra cents saved.
+- I wanted to be able to host this application myself, and ensure it's reliablity. I didn't want to need to baby it with it crashing often.
+
+### Finding Compatible Platforms
+
+The next challenge that I had to tackle was finding a notification platform that would meet my specification. I first thought about doing this as a native application, I however am predominately a web engineer (although more recently have done more native and cross platform applications) and building a native app just for this working out the in's and outs of the notifications API system seemed like more effort than it was worth for this project.
+
+I then thought that perhaps a cross platform approach like React Native would provide some help, I was familiar with React and it wouldn't take much to get up to speed with this approach. As I investigated this, notifications again seemed to be a pain to get working, with the majority of implementations resorting to third parties to handle these.
+
+I finally settled on text messages via Twillio. Text messages are an inbuilt notification system in any phone OS, and twillios API and friendly documentation make it a nice choice to get started with, spinning up a working example in a few minuites. There are ongoing costs with this however I hoped that the money saved in petrol would more than make up for these.
+
+### Scheduling
+
+### Hosting

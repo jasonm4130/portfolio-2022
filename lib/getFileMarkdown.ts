@@ -6,20 +6,21 @@ import rehypeFormat from 'rehype-format';
 import rehypeStringify from 'rehype-stringify';
 import rehypeHighlight from 'rehype-highlight';
 import getLink from './getLink';
+import { MarkdownFileContent } from './interfaces';
 
 /**
  * Function that gets the data for a specific MDX file
  * @param {string} filePath
  * @returns {object} - Returns the content, frontmatter, and link of the file
  */
-export default async function getFileMarkdown(filePath) {
+export default async function getFileMarkdown(filePath: string) {
   const { content: markdown, data: frontmatter } = matter.read(filePath);
 
   // Get the link
   const link = getLink(filePath);
 
   // Process the html
-  const content = await await unified()
+  const content = await unified()
     .use(remarkParse)
     .use(remarkRehype)
     .use(rehypeHighlight)
@@ -34,5 +35,5 @@ export default async function getFileMarkdown(filePath) {
     content: contentString,
     ...frontmatter,
     link,
-  };
+  } as MarkdownFileContent;
 }

@@ -2,26 +2,29 @@
 import React from 'react';
 import path from 'path';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
-import { article } from '../../styles/article.module.scss';
 import getPaths from '../../lib/getPaths';
 import getFileMarkdown from '../../lib/getFileMarkdown';
 import { ARTICLES_PATH } from '../../lib/consts';
 
-export default function Article({ title, content }) {
+type ArticleProps = {
+  title: string;
+  content: string;
+};
+
+export default function Article({ title, content }: ArticleProps) {
   return (
     <>
       <Head>
         <title>{title} - Articles</title>
       </Head>
-      <main className={article} dangerouslySetInnerHTML={{ __html: content }} />
+      <main dangerouslySetInnerHTML={{ __html: content }} />
     </>
   );
 }
 
-export async function getStaticPaths() {
+export function getStaticPaths() {
   // Get the articles paths from the file name
-  const paths = await getPaths(ARTICLES_PATH);
+  const paths = getPaths(ARTICLES_PATH);
 
   return {
     paths,
@@ -29,12 +32,11 @@ export async function getStaticPaths() {
   };
 }
 
-Article.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-};
-
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
   const filePath = path.join(ARTICLES_PATH, `${slug}.mdx`);
 
   return { props: await getFileMarkdown(filePath) };

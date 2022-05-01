@@ -1,7 +1,6 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
-export default function Logo({ className }) {
+export default function Logo({ className }: { className: string }) {
   return (
     <svg
       data-name="Layer 1"
@@ -14,7 +13,3 @@ export default function Logo({ className }) {
     </svg>
   );
 }
-
-Logo.propTypes = {
-  className: PropTypes.string,
-};

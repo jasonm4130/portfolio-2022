@@ -6,7 +6,7 @@ import path from 'path';
  * @param {string} documentsPath - The path to get all the paths from
  * @returns {object[]} - Returns an array of nextjs path params
  */
-export default async function getPaths(documentsPath) {
+export default function getPaths(documentsPath: string) {
   // Get all of the documents
   const files = fs.readdirSync(path.join(documentsPath));
 
