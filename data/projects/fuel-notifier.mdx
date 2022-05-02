@@ -3,9 +3,12 @@ title: Fuel Notifier
 exerpt: A simple node script that runs a chron and sends me a text message when the fuel price cycle is at it's lowest. Based off the RACQ fuel finder app.
 technologies: ["NodeJS", "Twillio", "API"]
 featured: true
+github: ""
 ---
 
 # Fuel Notifier
+
+To view the source code of the application visit [Fuel Notifier on Github](https://github.com/jasonm4130/fuel-notifier)
 
 ## Intro
 
@@ -47,4 +50,16 @@ I finally settled on text messages via Twillio. Text messages are an inbuilt not
 
 ### Scheduling
 
+There were two ways that I thought about scheduling for the application. The first would be to use something like chron and run the index file every x hours / days etc. The other option that I thought of was to expect that application to be running consistently and then handle the scheduling in the JS.
+
+Both of these options had merits.
+
+Scheduling via chron is quite common place. It also allows for a easier setup, and I don't have to worry about keeping the app running etc, it just starts up when it's needed, does it thing and then quits. These are all positives, but lets talk about the negatives. One of the goals of the application was to be cost effective, this means sending the least ammount of text messages as possible. One of the ways that I planned on acomplishing this was to check the current status returned from the API against the last status returned, thus confirming if anything had changed between runs. To do this with a cron I would need to have a tmp location that these statuses were stored, depending on frequency of hitting the API this could increase wear on SSD's etc, which I wanted to avoid if possible. In the end this probably wasn't a big deal as I am only running the app daily at 8am, so I doubt any noticable wear on the SSD would be caused by this.
+
+Scheduling in the application. This required a little more work than just firing a cron every x ammount of time. Luckily NPM has a schedule package that we can use to schedule a function to be run just like a cron. I used this and since the app will be running consistently I can simply write the previous response to memory. This does mean that whenever the app starts, if it is the ideal time to buy you will get a message, but based on the fact that the ideal time is only a few days window typically every two weeks it would need to be unlucky to have the app crash and restart in that window. This scenario would also only use an extra single text message, or if something goes really wrong it serves as both an alert to me that something is broken (getting a number of texts one after the other).
+
 ### Hosting
+
+I was already paying Twillio for the SMS service so I wanted to keep hosting costs to a minimum. To this end I have a server at home that I use for small things like this so I simply spun up the fuel notifier application in a docker container using PM2 to keep the service running, and set it free. This only costs me the price of electricity for the server which I already have running for other uses too.
+
+Alternatively I could spin this up in AWS or Digital Oceans app services, although this would obviously cost some money and the point of this excercise is to be saving money.
