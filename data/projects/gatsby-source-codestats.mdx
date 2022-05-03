@@ -4,3 +4,180 @@ exerpt: A simple GatsbyJS plugin used to get CodeStats API info at build time of
 technologies: ["GatsbyJS", "API"]
 featured: true
 ---
+
+# Gastby Source CodeStats
+
+This is a simple plugin that I built as I was working on my personal portfolio site in GatsbyJS (although now in NextJS). I wanted the experience of building a Gatsby plugin and this provided the perfect opportunity to do so.
+
+The plugin simply queries code stats while Gatsby builds a site. The advantage of this is that you have your "stats" up to date (at least from the last time the site was built) in the raw HTML that is then rehydrated into JS. This is better for SEO, and overally just a fun approach to take, I don't think there would be many huge downsides if the app waited until it was rehydrated before querying the CodeStats API. Additionally in the way that I have implemented it, this call to the API after rehydration is still made to get the most up to date data.
+
+## Building the Plugin
+
+The [GatsbyJS docs](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/creating-a-source-plugin/#set-up-a-source-plugin) provide a pretty detailed walkthrough of what needs to happen to build out a plugin.
+
+The Gatsby ecosystem provides a great way of testing things locally and then switching over to a npm module when things are working as expected and published.
+
+The plugin itself is really quite simple, I will walk through what each piece of code is doing, but at a high level. For more info on how to use the plugin itself I recommend checking out the [readme](https://github.com/jasonm4130/gatsby-source-codestats/blob/main/README.md) in the Github repo, where I have added more detailed usage instructions.
+
+The majority of the work for the plugin is done in the `gatsby-node.js` where we use the [sourceNode API](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#sourceNodes) to build out nodes that we can query via Gatsbys useStaticQuery to get this data at build time.
+
+### Getting the data
+
+The whole point of the plugin is to fetch the data for a user from CodeStats, to do this we use an axios get request:
+
+```javascript
+const response = await axios.get(
+  `https://codestats.net/api/users/${pluginOptions.user}`
+);
+```
+
+### Processing the data
+
+The API returns the data in a format that in my opinion is less usable (at least for my use case). The data is in objects where the object properties are keys for other objects. e.g.
+
+```JSON
+{
+  "user": "Nicd",
+  "total_xp": 3073421,
+  "new_xp": 3289,
+  "machines": {
+    "Työkone": {
+      "xps": 246116,
+      "new_xps": 3289
+    },
+    "Best Machine": {
+      "xps": 2827305,
+      "new_xps": 0
+    }
+  },
+  "languages": {
+    "😃": {
+      "xps": 1767278,
+      "new_xps": 0
+    },
+    "XML": {
+      "xps": 15,
+      "new_xps": 0
+    },
+    "Plaintext": {
+      "xps": 3429,
+      "new_xps": 3289
+    }
+  },
+  "dates": {
+    "2016-12-31": 3289,
+    "2016-08-24": 26700
+  }
+}
+```
+
+To me arrays of this data are a little easier to work with in the context that I am use it so we convert these objects into arrays.
+
+```javascript
+//   Create an array from the languages object and add the language key as the name
+const languages = Object.keys(response.data.languages).map((language) => ({
+  name: language,
+  ...response.data.languages[language],
+}));
+```
+
+This gives us something like:
+
+```javascript
+[
+  {
+    name: "😃",
+    xps: 1767278,
+    new_xps: 0,
+  },
+  {
+    name: "😞",
+    xps: 1767223,
+    new_xps: 0,
+  },
+];
+```
+
+### Presenting the data
+
+With our data in a easier to use format. We simply create new nodes for each piece of data that is needed.
+
+```javascript
+//   Create a node for each language
+languages.forEach((language) => {
+  const node = {
+    id: createNodeId(`${LANGUAGE_NODE_TYPE}-${language.name}`),
+    ...language,
+    parent: null,
+    children: [],
+    internal: {
+      type: LANGUAGE_NODE_TYPE,
+      content: JSON.stringify(language),
+      contentDigest: createContentDigest(language),
+    },
+  };
+  createNode(node);
+});
+```
+
+This is mainly built from the [example given via the Gatsby docs](https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#sourceNodes). You will notice here that we spread the language object into the node however, this seemed more efficient than the `Object.assign` call used in the example.
+
+From here we repeat this pattern of formatting the data and creating nodes for the other information that we recieved from the API (machines and dates).
+
+### Combining into a single user
+
+The last thing we do with our newly created nodes is combine them into one user node. This gives us all the key info for a user.
+
+```javascript
+//  Create a node for the user
+const user = {
+  id: createNodeId(`${USER_NODE_TYPE}-${response.data.user}`),
+  name: response.data.user,
+  totalXp: response.data.total_xp,
+  newXp: response.data.new_xp,
+  languages: getNodesByType(LANGUAGE_NODE_TYPE),
+  machines: getNodesByType(MACHINE_NODE_TYPE),
+  dates: getNodesByType(DATE_NODE_TYPE),
+  parent: null,
+  children: [],
+  internal: {
+    type: USER_NODE_TYPE,
+    content: JSON.stringify(response.data),
+    contentDigest: createContentDigest(response.data),
+  },
+};
+createNode(user);
+```
+
+### Using the data
+
+With the data all in queryable formats, we can use `useStaticQuery` to query the data that we need. For me this looked like:
+
+```javascript
+// Get the language states that were generated at build time and sort by xps
+const languageStats = useStaticQuery(graphql`
+  query {
+    allCodeStatsLanguage {
+      nodes {
+        xps
+        name
+        new_xps
+      }
+    }
+  }
+`).allCodeStatsLanguage.nodes.sort((a, b) => b.xps - a.xps);
+```
+
+The data is queried and then sorted into the highest xps languages.
+
+### Limitations
+
+It is worth noteing here that I tried to make the plugin as universal as possible by containing all of the information returned from the API at the time of publishing the plugin, however there is one limitation.
+
+The plugin is designed to only grab one user at a time, if you were to define multiple plugins and use them to get multiple users, I expect that there would be issues as I don't do anything to link the languages / machines / dates to the user objects to they would all end up mixed together. Perhaps if there is a need for this I will add it in the future.
+
+## Final Thoughts
+
+I really enjoyed the process of creating a source plugin. In fact I used this experience as an example of how developer experience could be improved within my day job, allowing our own internal developers to build maintainable snippets of code like this that help them generate server side markup.
+
+On top of this the Gatsby docs are really well maintained with up to date practices on publishing your created plugins on npm for others to be able to use, and then automatically having them display in the Gatsby Plugins search once they have been indexed. This is a really slick expericent for a developer and makes people want to contribute what they create, instead of having a bunch of hoops that people need to jump through.
