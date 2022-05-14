@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Twitter",
+    "link": "https://twitter.com/jasonm4130",
+    "iconPath": "/public/twitter.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/in/jasonm4130/",
+    "iconPath": "/public/linkedin.svg"
+  },
+  {
+    "name": "Instagram",
+    "link": "https://www.instagram.com/jasonm4130",
+    "iconPath": "/public/instagram.svg"
+  },
+  {
+    "name": "Github",
+    "link": "https://github.com/jasonm4130",
+    "iconPath": "/public/github.svg"
+  },
+  {
+    "name": "email",
+    "link": "mailto:jasonm4130@gmail.com",
+    "iconPath": "/public/email.svg"
+  }
+]

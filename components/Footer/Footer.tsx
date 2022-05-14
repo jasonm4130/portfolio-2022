@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import React, { useState } from 'react';
 import styles from './footer.module.scss';
 import ArrowIcon from '../../public/arrow-right.svg';
+import SocialList from '../SocialList/SocialList';
 
 export default function Footer() {
   // Setup our state for the form
@@ -20,25 +20,6 @@ export default function Footer() {
     setFormState({ ...formState, [name]: value });
   }
 
-  const socials = [
-    {
-      name: 'Twitter',
-      link: 'https://twitter.com/jasonm4130',
-    },
-    {
-      name: 'LinkedIn',
-      link: 'https://www.linkedin.com/in/jasonm4130/',
-    },
-    {
-      name: 'Instagram',
-      link: 'https://www.instagram.com/jasonm4130',
-    },
-    {
-      name: 'Github',
-      link: 'https://github.com/jasonm4130',
-    },
-  ];
-
   return (
     <footer className={styles.section}>
       <div className={styles.content}>
@@ -50,15 +31,7 @@ export default function Footer() {
       </div>
       <div className={styles.social}>
         <h3 className={styles.subTitle}>Follow me on</h3>
-        <ul className={styles.socialList}>
-          {socials.map((socialItem) => (
-            <li key={socialItem.name} className={styles.socialListItem}>
-              <Link href={socialItem.link}>
-                <a className={styles.link}>{socialItem.name}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <SocialList />
       </div>
       <div className={styles.formWrapper}>
         <form
