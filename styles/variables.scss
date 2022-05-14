@@ -8,7 +8,9 @@
 
   // Colour definitions
   --black: #030301;
+  --black-opacity: #03030108;
   --ivory: #fffff3;
+  --ivory-opacity: #fffff308;
   --shadow-blue: #7d8ca3;
   --iceberg: #79a9d1;
   --amber-sae-ece: #ff7f11;
@@ -18,6 +20,7 @@
   --accent-colour: var(--shadow-blue);
   --font-colour: var(--ivory);
   --bg-colour: var(--black);
+  --bg-lighter: var(--ivory-opacity);
 }
 
 [data-theme="light"] {
@@ -26,4 +29,5 @@
   --accent-colour: var(--shadow-blue);
   --font-colour: var(--black);
   --bg-colour: var(--ivory);
+  --bg-lighter: var(--black-opacity);
 }

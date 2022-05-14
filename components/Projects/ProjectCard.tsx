@@ -3,6 +3,7 @@ import React from 'react';
 import styles from './project-card.module.scss';
 import ArrowRight from '../../public/arrow-right.svg';
 import { MarkdownFileContent } from '../../lib/interfaces';
+import Watermark from '../../public/watermark.svg';
 
 export default function ProjectCard({
   project,
@@ -14,6 +15,7 @@ export default function ProjectCard({
     <Link href={link}>
       <a className={styles.link}>
         <article className={styles.card}>
+          <Watermark className={styles.watermark} />
           <div className={styles.title}>{title}</div>
           <ul className={styles.technologies}>
             {technologies.map((technology) => (

@@ -1,0 +1,7 @@
+<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 665 798">
+  <path opacity=".06" d="M581.68 234.26c0 44.56 35.92 80.67 80.22 80.67V153.6c-44.3 0-80.22 36.12-80.22 80.67Z" fill="var(--font-colour)"/>
+  <path opacity=".06" d="M398.83 193.83c-49.45 57.27-136.27 63.35-193.92 13.58L383.98 0c57.65 49.77 64.3 136.55 14.85 193.83Z" fill="var(--font-colour)"/>
+  <path d="M661.9 366.1V795H111.17" stroke="var(--font-colour)" stroke-width="5" stroke-linecap="round"/>
+  <path opacity=".06" d="M.3 597.6c0 58.25 47.62 105.46 106.36 105.46V492.14C47.92 492.14.3 539.36.3 597.6Z" fill="var(--font-colour)"/>
+  <path d="M74.68 154.07h457.4l96.59 102.4v506.17H74.68V154.07Z" stroke="var(--font-colour)" stroke-width="5" stroke-linecap="round"/>
+</svg>

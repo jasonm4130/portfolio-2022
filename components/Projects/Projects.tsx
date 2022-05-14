@@ -1,7 +1,9 @@
 import React from 'react';
+import Link from 'next/link';
 import ProjectCard from './ProjectCard';
 import styles from './projects.module.scss';
 import { MarkdownFileContent } from '../../lib/interfaces';
+import ArrowRight from '../../public/arrow-right.svg';
 
 export default function Projects({
   projects,
@@ -22,6 +24,11 @@ export default function Projects({
             it's the optimal time to fill up) to coding challenges like Advent
             of Code.
           </p>
+          <Link href="/projects">
+            <a className={styles.button}>
+              View More <ArrowRight className={styles.arrow} />
+            </a>
+          </Link>
         </div>
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />

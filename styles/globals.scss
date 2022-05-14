@@ -8,6 +8,10 @@ html {
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--accent-colour);
+}
+
 *,
 *:before,
 *:after {
@@ -34,4 +38,9 @@ main {
 [data-theme="light"] {
   /* stylelint-disable-next-line no-invalid-position-at-import-rule */
   @import "~highlight.js/styles/stackoverflow-light";
+}
+
+.ligher-bg {
+  margin: 0 calc(var(--main-padding-x) * -1);
+  background-color: var(--bg-lighter);
 }

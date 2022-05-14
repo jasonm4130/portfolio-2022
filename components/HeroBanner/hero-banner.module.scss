@@ -31,39 +31,27 @@
 }
 
 .image {
-  &Wrapper {
-    position: relative;
-    top: 9px;
-    left: 9px;
+  &Background {
+    position: absolute;
     width: 100%;
-    @include media-tablet-up {
-      margin: 0 64px;
-    }
+    height: 100%;
+    pointer-events: none;
+  }
 
-    &:before,
-    &:after {
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      border: 4px solid var(--font-colour);
-      content: "";
-    }
-    &:before {
-      top: 0;
-      left: 0;
-    }
-    &:after {
-      top: -18px;
-      left: -18px;
-    }
+  &Wrapper {
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    height: auto;
   }
 
   &Container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
     @include media-tablet-up {
       flex-direction: row;
       align-items: end;

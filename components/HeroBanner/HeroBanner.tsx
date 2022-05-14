@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './hero-banner.module.scss';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
 import SocialList from '../SocialList/SocialList';
+import HeroImageBg from '../../public/hero-image-bg.svg';
 
 export default function HeroBanner() {
   return (
@@ -22,6 +23,7 @@ export default function HeroBanner() {
         <SocialList />
       </div>
       <div className={styles.imageContainer}>
+        <HeroImageBg className={styles.imageBackground} />
         <div className={styles.imageWrapper}>
           <Image
             className={styles.image}
