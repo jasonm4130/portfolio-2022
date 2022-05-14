@@ -1,3 +1,6 @@
+@import "../../styles/breakpoints";
+@import "../../styles/mixins";
+
 .card {
   display: flex;
   flex-direction: column;
@@ -5,8 +8,10 @@
 }
 
 .title {
-  margin-bottom: 20px;
   font-size: calc(var(--font-scaling) * 1.25rem);
+  @include media-tablet-up {
+    margin-bottom: 20px;
+  }
 }
 
 .lead {
@@ -14,7 +19,12 @@
 }
 
 .icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 40px;
+  width: 65px;
+  height: 65px;
+  margin-bottom: 12px;
+  @include media-tablet-up {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 40px;
+  }
 }

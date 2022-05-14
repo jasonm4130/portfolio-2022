@@ -42,5 +42,6 @@ main {
 
 .ligher-bg {
   margin: 0 calc(var(--main-padding-x) * -1);
+  padding: 0 var(--main-padding-x);
   background-color: var(--bg-lighter);
 }

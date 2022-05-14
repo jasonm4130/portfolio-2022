@@ -16,8 +16,8 @@
 
   &:after {
     position: absolute;
-    top: -75px;
-    right: -75px;
+    top: -78px;
+    right: -78px;
     z-index: 5;
     width: 150px;
     height: 150px;
@@ -42,6 +42,7 @@
 }
 
 .title {
+  margin-right: 75px;
   margin-bottom: 0.25em;
   font-weight: bold;
   font-size: calc(var(--font-scaling) * 1.25rem);
@@ -53,6 +54,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 16px;
+  margin-right: 75px;
   margin-bottom: calc(var(--font-scaling) * 1.25rem * 1.25);
   font-weight: bold;
   transition: color var(--transition);

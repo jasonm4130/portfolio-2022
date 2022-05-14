@@ -3,7 +3,9 @@
 
 .section {
   @include section;
-  text-align: center;
+  @include media-tablet-up {
+    text-align: center;
+  }
 }
 
 .title {
@@ -17,9 +19,9 @@
 
 .grid {
   display: grid;
-  grid-template-rows: repeat(8, 1fr);
-  grid-template-columns: repeat(1, 1fr);
-  gap: 32px;
+  grid-gap: 36px 52px;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   margin: 64px auto;
   @include media-tablet-up {
     grid-gap: 80px;
