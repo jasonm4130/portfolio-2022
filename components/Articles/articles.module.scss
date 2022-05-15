@@ -16,6 +16,10 @@
   margin-top: 0;
 }
 
+.intro {
+  margin-bottom: 84px;
+}
+
 .content {
   @include media-tablet-up {
     width: 35%;

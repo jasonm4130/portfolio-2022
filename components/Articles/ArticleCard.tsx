@@ -1,7 +1,7 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { MarkdownFileContent } from '../../lib/interfaces';
-import ArrowIcon from '../../public/arrow-right.svg';
 import styles from './article-card.module.scss';
 
 export default function ArticleCard({
@@ -11,7 +11,7 @@ export default function ArticleCard({
   article: MarkdownFileContent;
   className?: string;
 }) {
-  const { date, link, title, exerpt } = article;
+  const { date, link, title, exerpt, image } = article;
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -25,12 +25,16 @@ export default function ArticleCard({
 
   return (
     <Link href={link}>
-      <a className={`${link} ${className}`}>
+      <a className={`${styles.link} ${className}`}>
         <article className={styles.container}>
-          <div className={styles.title}>{title}</div>
-          <div className={styles.date}>{dateFormatted}</div>
-          <p className={styles.exerpt}>{exerpt}</p>
-          <ArrowIcon className={styles.icon} />
+          <div className={styles.imageContainer}>
+            <Image layout="fill" src={image} objectFit="cover" />
+          </div>
+          <div className={styles.cardContent}>
+            <div className={styles.title}>{title}</div>
+            <div className={styles.date}>{dateFormatted}</div>
+            <p className={styles.exerpt}>{exerpt}</p>
+          </div>
         </article>
       </a>
     </Link>
