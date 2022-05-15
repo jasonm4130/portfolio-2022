@@ -5,6 +5,10 @@ import JS from '../../public/js.svg';
 import Markdown from '../../public/markdown.svg';
 import PHP from '../../public/php.svg';
 import SASS from '../../public/sass.svg';
+import Code from '../../public/code.svg';
+import TS from '../../public/typescript.svg';
+import JSON from '../../public/json.svg';
+import Dart from '../../public/dart.svg';
 
 interface IconInterface {
   className?: string;
@@ -37,9 +41,18 @@ export default function SkillCard({
     case 'PHP':
       Icon = PHP as React.FC<IconInterface>;
       break;
+    case 'JSON':
+      Icon = JSON as React.FC<IconInterface>;
+      break;
+    case 'TypeScript':
+      Icon = TS as React.FC<IconInterface>;
+      break;
+    case 'Dart':
+      Icon = Dart as React.FC<IconInterface>;
+      break;
 
     default:
-      Icon = JS as React.FC<IconInterface>;
+      Icon = Code as React.FC<IconInterface>;
       break;
   }
 

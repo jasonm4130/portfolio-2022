@@ -10,6 +10,14 @@
   @include media-tablet-up {
     margin: 150px 0;
   }
+  &Inverse {
+    .link {
+      color: var(--bg-colour);
+      &:after {
+        background-color: var(--bg-colour);
+      }
+    }
+  }
 }
 
 .icon {

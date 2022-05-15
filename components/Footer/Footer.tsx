@@ -5,12 +5,17 @@ import SocialList from '../SocialList/SocialList';
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <Logo className={styles.logo} />
-      <div className={styles.socialSection}>
-        <h2 className={styles.socialTitle}>Follow Me</h2>
-        <SocialList className={styles.socialList} />
+    <footer>
+      <div className={styles.footerMainBg}>
+        <div className={styles.footerMain}>
+          <Logo className={styles.logo} />
+          <div className={styles.socialSection}>
+            <h2 className={styles.socialTitle}>Follow Me</h2>
+            <SocialList inverse className={styles.socialList} />
+          </div>
+        </div>
       </div>
+      <div className={styles.copyright}>Jason Matthew, Copyright © 2022</div>
     </footer>
   );
 }

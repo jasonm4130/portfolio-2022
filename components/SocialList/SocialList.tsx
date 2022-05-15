@@ -11,7 +11,13 @@ interface IconInterface {
   className?: string;
 }
 
-export default function SocialList({ className }: { className: string }) {
+export default function SocialList({
+  className,
+  inverse,
+}: {
+  className?: string;
+  inverse?: boolean;
+}) {
   const socials = [
     {
       name: 'Twitter',
@@ -46,7 +52,12 @@ export default function SocialList({ className }: { className: string }) {
   // Add our base class
   classes.push(styles.list);
 
-  // If a classname has been defined in the props add this too
+  // If a the social list should be inverted
+  if (inverse) {
+    classes.push(styles.listInverse);
+  }
+
+  // If a custom className has been set to be applied
   if (className) {
     classes.push(className);
   }

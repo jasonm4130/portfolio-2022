@@ -1,34 +1,54 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
 
-.footer {
+.footerMain {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: 82px var(--main-padding-x);
   color: var(--bg-colour);
+  @include media-tablet-up {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.footerMainBg {
   background-color: var(--font-colour);
+}
+
+.copyright {
+  padding: 16px 0;
+  font-size: calc(var(--font-scaling) * 0.75rem);
+  text-align: center;
 }
 
 .logo {
   width: 200px;
   height: auto;
   fill: currentColor;
+  @include media-tablet-up {
+    width: 172px;
+  }
 }
 
 .socialSection {
   margin: 77px auto;
+  @include media-tablet-up {
+    margin: 0 0 0 auto;
+  }
 }
 
 .socialTitle {
   margin: 0;
   font-weight: normal;
   font-size: calc(var(--font-scaling) * 1.3rem);
+  @include media-tablet-up {
+    font-size: calc(var(--font-scaling) * 1rem);
+  }
 }
 
 .socialList {
-  --list-font-colour: var(--bg-colour);
-  --list-bg-colour: var(--font-colour);
-  --font-colour: var(--list-font-colour);
-  --bg-colour: var(--list-bg-colour);
+  margin: 21px 0;
 }
