@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Logo from '../Logo';
+import Logo from '../../public/logo.svg';
 import styles from './menu.module.scss';
 import MenuBurger from './Menu-Burger';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';

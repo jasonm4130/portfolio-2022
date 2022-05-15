@@ -35,9 +35,13 @@ export default function Home({
       <main>
         <HeroBanner />
         <Projects projects={projects} />
-        <Skills statsData={statsData} />
+        <div className="ligher-bg">
+          <Skills statsData={statsData} />
+        </div>
         <Articles articles={articles} />
-        <About />
+        <div className="ligher-bg">
+          <About />
+        </div>
       </main>
     </>
   );

@@ -184,26 +184,24 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
   }
 
   return (
-    <div className="ligher-bg">
-      <section className={styles.section}>
-        <div className={styles.intro}>
-          <h2 className={styles.title}>Hard Skills</h2>
-          <p className={styles.intro}>
-            A lot of portfolio sites have abitary skill rankings 5 stars in JS
-            etc. I like data so I track my keystrokes in my code editor with a
-            tool called CodeStats. This isn't really any better than arbitary
-            star ratings but I think it's cool to look at data. So here are my
-            top languages and the number of keystrokes I have done in them.
-          </p>
-        </div>
-        <div className={styles.grid}>
-          {combinedLanguagesArray.map(
-            (language: { name: string; xps: number; newXps: number }) => (
-              <SkillCard key={language.name} language={language} />
-            )
-          )}
-        </div>
-      </section>
-    </div>
+    <section className={styles.section}>
+      <div className={styles.intro}>
+        <h2 className={styles.title}>Hard Skills</h2>
+        <p className={styles.intro}>
+          A lot of portfolio sites have abitary skill rankings 5 stars in JS
+          etc. I like data so I track my keystrokes in my code editor with a
+          tool called CodeStats. This isn't really any better than arbitary star
+          ratings but I think it's cool to look at data. So here are my top
+          languages and the number of keystrokes I have done in them.
+        </p>
+      </div>
+      <div className={styles.grid}>
+        {combinedLanguagesArray.map(
+          (language: { name: string; xps: number; newXps: number }) => (
+            <SkillCard key={language.name} language={language} />
+          )
+        )}
+      </div>
+    </section>
   );
 }
