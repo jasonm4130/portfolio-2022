@@ -16,6 +16,10 @@
       &:after {
         background-color: var(--bg-colour);
       }
+      &:focus,
+      &:hover {
+        color: var(--font-colour);
+      }
     }
   }
 }
