@@ -34,8 +34,9 @@
 
 .imageContainer {
   position: relative;
+  aspect-ratio: 8 / 9;
   width: 35%;
-  height: 100%;
+  max-width: 200px;
   overflow: hidden;
   &:after {
     position: absolute;

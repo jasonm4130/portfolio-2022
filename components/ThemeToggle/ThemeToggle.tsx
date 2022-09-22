@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import PropTypes from 'prop-types';
 import styles from './theme-toggle.module.scss';
@@ -15,15 +15,27 @@ function getThemeInverseString(theme) {
 interface UseTheme {
   theme: string;
   setTheme: (string) => void;
+  resolvedTheme: string;
 }
 
 export default function Toggle({ className }: { className: string }) {
-  const { theme, setTheme } = useTheme() as UseTheme;
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme() as UseTheme;
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // If the component isn't mounted don't return anything (prevent rehydration issues)
+  if (!mounted) {
+    return null;
+  }
+
+  // Return the theme switcher when the component is mounted
   return (
     <button
       onClick={() => {
-        setTheme(getThemeInverseString(theme));
+        setTheme(getThemeInverseString(resolvedTheme));
       }}
       type="button"
       className={`${styles.toggle} ${

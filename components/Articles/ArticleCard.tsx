@@ -28,7 +28,13 @@ export default function ArticleCard({
       <a className={`${styles.link} ${className}`}>
         <article className={styles.container}>
           <div className={styles.imageContainer}>
-            <Image layout="fill" src={image} objectFit="cover" />
+            <Image
+              layout="responsive"
+              width="100%"
+              height="100%"
+              src={image}
+              objectFit="cover"
+            />
           </div>
           <div className={styles.cardContent}>
             <div className={styles.title}>{title}</div>
