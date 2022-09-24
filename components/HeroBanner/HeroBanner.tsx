@@ -15,9 +15,9 @@ export default function HeroBanner() {
           <span className="h3">a software engineer</span>
         </h1>
         <p>
-          I'm pashionate about learning, and wanted a place href share. I've
-          carved out this little corner of the internet href do just that. Come
-          and join me on my journey of improvment and learning href be a better
+          I'm pashionate about learning, and wanted a place to share. I've
+          carved out this little corner of the internet to do just that. Come
+          and join me on my journey of improvment and learning to be a better
           engineer.
         </p>
         <SocialList />
