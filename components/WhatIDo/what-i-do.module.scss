@@ -1,0 +1,53 @@
+@import "../../styles/breakpoints.scss";
+@import "../../styles/mixins.scss";
+
+.section {
+  @include section;
+  @include media-tablet-up {
+    text-align: center;
+  }
+}
+
+.title {
+  @include section-title;
+  margin-top: 0;
+}
+
+.intro {
+  @include section-intro;
+  max-width: var(--max-content-width);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include media-tablet-up {
+    flex-direction: row;
+    margin-top: 148px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 465px;
+  margin: 32px;
+  text-align: center;
+  .icon {
+    width: 65px;
+    height: 65px;
+    padding: 18px;
+    background-color: var(--font-colour);
+    border-radius: 14px;
+    fill: var(--bg-colour);
+  }
+  .title {
+    margin: 12px auto;
+    font-size: 24px;
+  }
+  .description {
+    font-size: 14px;
+  }
+}

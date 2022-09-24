@@ -8,6 +8,7 @@ import Articles from '../components/Articles/Articles';
 import getMostRecentArticles from '../lib/getMostRecentArticles';
 import getFeaturedProjects from '../lib/getFeaturedProjects';
 import { MarkdownFileContent } from '../lib/interfaces';
+import WhatIDo from '../components/WhatIDo/WhatIDo';
 
 type LanguageData = {
   languages: {
@@ -34,6 +35,9 @@ export default function Home({
       </Head>
       <main>
         <HeroBanner />
+        <div className="ligher-bg">
+          <WhatIDo />
+        </div>
         <Projects projects={projects} />
         <div className="ligher-bg">
           <Skills statsData={statsData} />
