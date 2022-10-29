@@ -1,5 +1,6 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
+@import "../../styles/utilities.scss";
 
 .section {
   @include section;
@@ -35,6 +36,7 @@
 }
 
 .image {
+  object-fit: contain;
   &Background {
     position: absolute;
     width: 100%;
@@ -43,10 +45,11 @@
   }
 
   &Wrapper {
+    position: relative;
     display: block;
     width: 100%;
     max-width: 650px;
-    height: auto;
+    height: 100%;
   }
 
   &Container {
@@ -56,7 +59,9 @@
     justify-content: center;
     width: 100%;
     overflow: hidden;
+    aspect-ratio: 1/1.5;
     @include media-tablet-up {
+      aspect-ratio: 1.5/1;
       flex-direction: row;
       align-items: end;
       width: 50%;

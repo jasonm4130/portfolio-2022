@@ -6,6 +6,7 @@ export interface MarkdownFileContent {
   tags?: string[];
   date?: string;
   image?: string;
+  imageAlt?: string;
   featured?: boolean;
   content?: string;
 }

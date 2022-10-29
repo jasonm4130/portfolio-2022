@@ -33,10 +33,8 @@ export default function Menu() {
 
   return (
     <nav className={styles.nav}>
-      <Link href="/">
-        <a className={styles.logoLink}>
-          <Logo className={styles.logo} />
-        </a>
+      <Link href="/" className={styles.logoLink}>
+        <Logo className={styles.logo} />
       </Link>
       <ul className={`${styles.list} ${isOpen ? styles.listOpen : ''}`}>
         {items.map((item) => {
@@ -54,8 +52,8 @@ export default function Menu() {
 
           return (
             <li key={name} className={classList.join(' ')}>
-              <Link href={href}>
-                <a className={styles.listItemLink}>{name}</a>
+              <Link href={href} className={styles.listItemLink}>
+                {name}
               </Link>
             </li>
           );

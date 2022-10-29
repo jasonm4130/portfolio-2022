@@ -95,10 +95,8 @@ export default function About() {
           (road and mountain), going to the gym, and the occasional computer
           game.
         </p>
-        <Link href="/about">
-          <a className="primary-cta">
-            More about me <ArrowIcon className="primary-cta__icon" />
-          </a>
+        <Link href="/about" className={styles.primaryCta}>
+          More about me <ArrowIcon className={styles.primaryCtaIcon} />
         </Link>
       </div>
       <div className={styles.imageContainer}>
@@ -107,8 +105,8 @@ export default function About() {
           <Image
             className={styles.image}
             src={HeroImage}
-            layout="responsive"
             priority
+            alt="Image of Jason Matthew"
           />
         </div>
       </div>

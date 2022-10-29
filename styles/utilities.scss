@@ -8,7 +8,7 @@
   position: fixed;
 }
 
-.sr-only {
+.srOnly {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -21,7 +21,7 @@
   clip-path: inset(50%);
 }
 
-.primary-cta {
+.primaryCta {
   @include reset-link;
   display: inline-flex;
   gap: 1em;
@@ -31,7 +31,7 @@
   text-decoration: none;
   border: 2px solid var(--font-colour);
   transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  &__icon {
+  &Icon {
     width: auto;
     height: 48px;
     fill: currentColor;

@@ -68,11 +68,9 @@ export default function SocialList({
         const { name, link, Icon } = social;
         return (
           <li key={name} className={styles.listItem}>
-            <Link href={link}>
-              <a className={styles.link}>
-                <Icon className={styles.icon} />
-                <span className="sr-only">{name}</span>
-              </a>
+            <Link href={link} className={styles.link}>
+              <Icon className={styles.icon} />
+              <span className={styles.srOnly}>{name}</span>
             </Link>
           </li>
         );

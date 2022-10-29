@@ -46,7 +46,7 @@ export default function Toggle({ className }: { className: string }) {
         <MoonSVG className={styles.moon} />
         <SunSVG className={styles.sun} />
       </span>
-      <span className="sr-only">Toggle theme</span>
+      <span className={styles.srOnly}>Toggle theme</span>
     </button>
   );
 }

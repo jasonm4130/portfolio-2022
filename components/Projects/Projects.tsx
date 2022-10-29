@@ -24,10 +24,8 @@ export default function Projects({
             it's the optimal time to fill up) to coding challenges like Advent
             of Code.
           </p>
-          <Link href="/projects">
-            <a className={styles.button}>
-              View More <ArrowRight className={styles.arrow} />
-            </a>
+          <Link href="/projects" className={styles.button}>
+            View More <ArrowRight className={styles.arrow} />
           </Link>
         </div>
         {projects.map((project) => (

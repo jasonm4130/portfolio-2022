@@ -64,7 +64,7 @@ export default function Pagination({
                   pageNumber === currentPage ? styles.buttonCurrent : ''
                 }`}
               >
-                <span className="sr-only">Go to </span>
+                <span className={styles.srOnly}>Go to </span>
                 {pageNumber}
               </button>
             </li>

@@ -18,10 +18,8 @@ export default function Articles({
           Some recent ramblings on software engineering, general development,
           business, leadership, and the industry space in general.
         </p>
-        <Link href="/articles">
-          <a className="primary-cta">
-            View more <ArrowIcon className="primary-cta__icon" />
-          </a>
+        <Link href="/articles" className={styles.primaryCta}>
+          View more <ArrowIcon className={styles.primaryCtaIcon} />
         </Link>
       </div>
       <div className={styles.grid}>

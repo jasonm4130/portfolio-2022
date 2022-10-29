@@ -11,7 +11,7 @@ export default function ArticleCard({
   article: MarkdownFileContent;
   className?: string;
 }) {
-  const { date, link, title, exerpt, image } = article;
+  const { date, link, title, exerpt, image, imageAlt } = article;
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -24,25 +24,17 @@ export default function ArticleCard({
   );
 
   return (
-    <Link href={link}>
-      <a className={`${styles.link} ${className}`}>
-        <article className={styles.container}>
-          <div className={styles.imageContainer}>
-            <Image
-              layout="responsive"
-              width="100%"
-              height="100%"
-              src={image}
-              objectFit="cover"
-            />
-          </div>
-          <div className={styles.cardContent}>
-            <div className={styles.title}>{title}</div>
-            <div className={styles.date}>{dateFormatted}</div>
-            <p className={styles.exerpt}>{exerpt}</p>
-          </div>
-        </article>
-      </a>
+    <Link href={link} className={`${styles.link} ${className}`}>
+      <article className={styles.container}>
+        <div className={styles.imageContainer}>
+          <Image fill src={image} alt={imageAlt} />
+        </div>
+        <div className={styles.cardContent}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.date}>{dateFormatted}</div>
+          <p className={styles.exerpt}>{exerpt}</p>
+        </div>
+      </article>
     </Link>
   );
 }

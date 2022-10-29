@@ -10,9 +10,9 @@ export default function HeroBanner() {
     <section className={styles.section}>
       <div className={styles.content}>
         <h1>
-          I'm <span className="highlight">Jason</span> Matthew,
+          I'm <span className={styles.highlight}>Jason</span> Matthew,
           <br />
-          <span className="h3">a software engineer</span>
+          <span className={styles.h3}>a software engineer</span>
         </h1>
         <p>
           I'm pashionate about learning, and wanted a place to share. I've
@@ -28,8 +28,9 @@ export default function HeroBanner() {
           <Image
             className={styles.image}
             src={HeroImage}
-            layout="responsive"
+            alt="Picture of Jason Matthew"
             priority
+            fill
           />
         </div>
       </div>

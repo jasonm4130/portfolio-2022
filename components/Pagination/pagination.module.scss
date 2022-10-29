@@ -1,5 +1,6 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
+@import "../../styles/utilities.scss";
 
 .list {
   @include rest-ul;
