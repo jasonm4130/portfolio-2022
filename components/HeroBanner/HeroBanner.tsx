@@ -1,9 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
-import styles from './hero-banner.module.scss';
+import HeroImageBg from '../../public/hero-image-bg.svg';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
 import SocialList from '../SocialList/SocialList';
-import HeroImageBg from '../../public/hero-image-bg.svg';
+import styles from './hero-banner.module.scss';
 
 export default function HeroBanner() {
   return (
@@ -20,7 +19,7 @@ export default function HeroBanner() {
           and join me on my journey of improvment and learning to be a better
           engineer.
         </p>
-        <SocialList />
+        <SocialList className={styles.socialList} />
       </div>
       <div className={styles.imageContainer}>
         <HeroImageBg className={styles.imageBackground} />

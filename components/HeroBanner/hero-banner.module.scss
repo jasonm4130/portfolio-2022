@@ -11,13 +11,13 @@
   align-items: center;
   justify-content: space-between;
   max-width: var(--max-width);
-  margin-bottom: 64px;
+  margin: 28px 0;
   padding: 0;
   fill: var(--primary-colour);
   @include media-tablet-up {
     display: flex;
     flex-direction: row;
-    margin-bottom: 145px;
+    margin: 72.5px 0;
     padding: 0;
   }
 }
@@ -33,6 +33,9 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  @include media-tablet-up {
+    margin-top: 145px;
+  }
 }
 
 .image {
@@ -61,7 +64,7 @@
     overflow: hidden;
     aspect-ratio: 1/1.5;
     @include media-tablet-up {
-      aspect-ratio: 1.5/1;
+      aspect-ratio: 1.2/1;
       flex-direction: row;
       align-items: end;
       width: 50%;
