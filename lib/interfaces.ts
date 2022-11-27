@@ -1,7 +1,7 @@
 export interface MarkdownFileContent {
   title: string;
   link: string;
-  exerpt: string;
+  excerpt: string;
   technologies?: string[];
   tags?: string[];
   date?: string;

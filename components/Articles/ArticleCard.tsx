@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { MarkdownFileContent } from '../../lib/interfaces';
 import styles from './article-card.module.scss';
 
@@ -11,7 +10,7 @@ export default function ArticleCard({
   article: MarkdownFileContent;
   className?: string;
 }) {
-  const { date, link, title, exerpt, image, imageAlt } = article;
+  const { date, link, title, excerpt, image, imageAlt } = article;
   const dateOptions: Intl.DateTimeFormatOptions = {
     year: 'numeric',
     month: 'long',
@@ -32,7 +31,7 @@ export default function ArticleCard({
         <div className={styles.cardContent}>
           <div className={styles.title}>{title}</div>
           <div className={styles.date}>{dateFormatted}</div>
-          <p className={styles.exerpt}>{exerpt}</p>
+          <p className={styles.excerpt}>{excerpt}</p>
         </div>
       </article>
     </Link>
