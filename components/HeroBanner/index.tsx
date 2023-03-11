@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Highlight from '../Highlight';
 import HeroImageBg from '../../public/hero-image-bg.svg';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
 import SocialList from '../SocialList';
@@ -9,7 +10,7 @@ export default function HeroBanner() {
     <section className={styles.section}>
       <div className={styles.content}>
         <h1>
-          I'm <span className={styles.highlight}>Jason</span> Matthew,
+          I'm <Highlight>Jason</Highlight> Matthew,
           <br />
           <span className={styles.h3}>a software engineer</span>
         </h1>
