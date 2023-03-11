@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import axios from 'axios';
+import LighterBg from 'components/LighterBg';
 import HeroBanner from '../components/HeroBanner';
 import Skills from '../components/Skills';
 import About from '../components/About';
@@ -35,17 +36,17 @@ export default function Home({
       </Head>
       <main>
         <HeroBanner />
-        <div className="lighterBg">
+        <LighterBg>
           <WhatIDo />
-        </div>
+        </LighterBg>
         <Projects projects={projects} />
-        <div className="lighterBg">
+        <LighterBg>
           <Skills statsData={statsData} />
-        </div>
+        </LighterBg>
         <Articles articles={articles} />
-        <div className="lighterBg">
+        <LighterBg>
           <About />
-        </div>
+        </LighterBg>
       </main>
     </>
   );
