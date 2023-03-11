@@ -11,13 +11,13 @@
   align-items: center;
   justify-content: space-between;
   max-width: var(--max-width);
-  margin: 28px 0;
+  margin: 28px auto;
   padding: 0;
   fill: var(--primary-colour);
   @include media-tablet-up {
     display: flex;
     flex-direction: row;
-    margin: 72.5px 0;
+    margin: 72.5px auto;
     padding: 0;
   }
 }

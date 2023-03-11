@@ -1,9 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../ProjectCard';
 import styles from './projects.module.scss';
 import { MarkdownFileContent } from '../../lib/interfaces';
-import ArrowRight from '../../public/arrow-right.svg';
+import PrimaryCtaButton from '../PrimaryCtaButton';
 
 export default function Projects({
   projects,
@@ -24,9 +23,14 @@ export default function Projects({
             it's the optimal time to fill up) to coding challenges like Advent
             of Code.
           </p>
-          <Link href="/projects" className={styles.button}>
-            View More <ArrowRight className={styles.arrow} />
-          </Link>
+          <PrimaryCtaButton
+            href="/projects"
+            customClasses={{
+              primaryCta: styles.primaryCta,
+            }}
+          >
+            View more
+          </PrimaryCtaButton>
         </div>
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import HeroImageBg from '../../public/hero-image-bg.svg';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
-import SocialList from '../SocialList/SocialList';
+import SocialList from '../SocialList';
 import styles from './hero-banner.module.scss';
 
 export default function HeroBanner() {

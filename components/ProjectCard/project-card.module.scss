@@ -81,8 +81,8 @@
 .arrow {
   width: auto;
   height: 48px;
-  transition: fill var(--transition);
-  fill: var(--card-font);
+  transition: stroke var(--transition);
+  stroke: var(--card-font);
 
   &Wrapper {
     position: absolute;

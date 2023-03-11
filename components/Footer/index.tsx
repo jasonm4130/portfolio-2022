@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './footer.module.scss';
 import Logo from '../../public/logo.svg';
-import SocialList from '../SocialList/SocialList';
+import SocialList from '../SocialList';
 
 export default function Footer() {
   return (

@@ -48,3 +48,10 @@
 .title {
   @include section-title;
 }
+
+.primaryCta {
+  margin-top: 38px;
+  @include media-tablet-up {
+    margin-top: 110px;
+  }
+}

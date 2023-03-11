@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Logo from '../../public/logo.svg';
 import styles from './menu.module.scss';
-import MenuBurger from './Menu-Burger';
-import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import MenuBurger from '../MenuBurger';
+import ThemeToggle from '../ThemeToggle';
 
 export default function Menu() {
   const { pathname } = useRouter();

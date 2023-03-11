@@ -7,8 +7,8 @@ import {
   DESKTOP_BREAKPOINT,
   TABLET_BREAKPOINT,
 } from '../../lib/consts';
-import Pagination from '../../components/Pagination/Pagination';
-import ArticleCard from '../../components/Articles/ArticleCard';
+import Pagination from '../../components/Pagination';
+import ArticleCard from '../../components/ArticleCard';
 import sortByDate from '../../lib/sortByDate';
 import { MarkdownFileContent } from '../../lib/interfaces';
 

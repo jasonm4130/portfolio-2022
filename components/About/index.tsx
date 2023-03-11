@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './about.module.scss';
-import ArrowIcon from '../../public/arrow-right.svg';
 import AboutMeImageBg from '../../public/about-me-img-bg.svg';
 import HeroImage from '../../public/images/behrouz-sasani-cEnSr1WRHUY-unsplash-removebg-preview.png';
+import PrimaryCtaButton from '../PrimaryCtaButton';
 
 function getRedableTime(ms: number) {
   let miliseconds = Math.floor(ms);
@@ -95,9 +94,14 @@ export default function About() {
           (road and mountain), going to the gym, and the occasional computer
           game.
         </p>
-        <Link href="/about" className={styles.primaryCta}>
-          More about me <ArrowIcon className={styles.primaryCtaIcon} />
-        </Link>
+        <PrimaryCtaButton
+          href="/about"
+          customClasses={{
+            primaryCta: styles.primaryCta,
+          }}
+        >
+          More about me
+        </PrimaryCtaButton>
       </div>
       <div className={styles.imageContainer}>
         <AboutMeImageBg className={styles.imageBackground} />

@@ -1,9 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
-import ArticleCard from './ArticleCard';
+import ArticleCard from '../ArticleCard';
 import styles from './articles.module.scss';
-import ArrowIcon from '../../public/arrow-right.svg';
 import { MarkdownFileContent } from '../../lib/interfaces';
+import PrimaryCtaButton from '../PrimaryCtaButton';
 
 export default function Articles({
   articles,
@@ -18,9 +17,14 @@ export default function Articles({
           Some recent ramblings on software engineering, general development,
           business, leadership, and the industry space in general.
         </p>
-        <Link href="/articles" className={styles.primaryCta}>
-          View more <ArrowIcon className={styles.primaryCtaIcon} />
-        </Link>
+        <PrimaryCtaButton
+          href="/articles"
+          customClasses={{
+            primaryCta: styles.primaryCta,
+          }}
+        >
+          View more
+        </PrimaryCtaButton>
       </div>
       <div className={styles.grid}>
         {articles.map((article) => (

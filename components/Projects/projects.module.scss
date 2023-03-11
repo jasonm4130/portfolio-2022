@@ -1,5 +1,6 @@
 @import "../../styles/breakpoints.scss";
 @import "../../styles/mixins.scss";
+@import "../../styles/utilities.scss";
 
 .section {
   @include section;
@@ -27,28 +28,10 @@
   }
 }
 
-.button {
-  @include reset-link;
-  display: inline-flex;
-  align-items: center;
-  padding: 16px 25px;
-  color: var(--font-colour);
-  border: 2px solid var(--font-colour);
-  transition: color var(--transition), background-color var(--transition);
-
-  &:hover,
-  &:focus {
-    color: var(--bg-colour);
-    background-color: var(--font-colour);
-  }
-
+.primaryCta {
+  margin-top: 12px;
   @include media-tablet-up {
-    margin: 75px 0;
+    margin-top: 80px;
+    margin-bottom: 80px;
   }
-}
-
-.arrow {
-  width: 25px;
-  margin-left: 32px;
-  fill: currentColor;
 }

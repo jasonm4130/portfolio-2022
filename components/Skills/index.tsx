@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './skills.module.scss';
-import SkillCard from './SkillCard';
+import SkillCard from '../SkillCard';
 
 interface ResponseData {
   languages: {

@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import axios from 'axios';
-import HeroBanner from '../components/HeroBanner/HeroBanner';
-import Skills from '../components/Skills/Skills';
-import About from '../components/About/About';
-import Projects from '../components/Projects/Projects';
-import Articles from '../components/Articles/Articles';
+import HeroBanner from '../components/HeroBanner';
+import Skills from '../components/Skills';
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Articles from '../components/Articles';
 import getMostRecentArticles from '../lib/getMostRecentArticles';
 import getFeaturedProjects from '../lib/getFeaturedProjects';
 import { MarkdownFileContent } from '../lib/interfaces';
-import WhatIDo from '../components/WhatIDo/WhatIDo';
+import WhatIDo from '../components/WhatIDo';
 
 type LanguageData = {
   languages: {
@@ -35,15 +35,15 @@ export default function Home({
       </Head>
       <main>
         <HeroBanner />
-        <div className="ligher-bg">
+        <div className="lighterBg">
           <WhatIDo />
         </div>
         <Projects projects={projects} />
-        <div className="ligher-bg">
+        <div className="lighterBg">
           <Skills statsData={statsData} />
         </div>
         <Articles articles={articles} />
-        <div className="ligher-bg">
+        <div className="lighterBg">
           <About />
         </div>
       </main>
