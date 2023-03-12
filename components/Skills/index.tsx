@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import styles from './skills.module.scss';
 import SkillCard from '../SkillCard';
 
@@ -55,14 +54,22 @@ function combineLanguages(
   };
 }
 
+async function getStatsData() {
+  const response = await fetch('https://codestats.net/api/users/jasonm4130');
+  const data = (await response.json()) as ResponseData;
+
+  return data;
+}
+
 export default function Skills({ statsData }: { statsData: ResponseData }) {
   // Set the stats data to the initial data
   const [statsDataState, setStatsDataState] = useState(statsData);
 
   // Get the new stats when the component mounts
   useEffect(() => {
-    axios.get('https://codestats.net/api/users/jasonm4130').then((response) => {
-      setStatsDataState(response.data as ResponseData);
+    // Use fetch to get the data from the API
+    getStatsData().then((data) => {
+      setStatsDataState(data);
     });
   }, []);
 

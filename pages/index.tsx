@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import axios from 'axios';
-import LighterBg from 'components/LighterBg';
+import LighterBg from '../components/LighterBg';
 import HeroBanner from '../components/HeroBanner';
 import Skills from '../components/Skills';
 import About from '../components/About';
@@ -60,9 +59,8 @@ type CodeStatsResponse = {
 
 export async function getStaticProps() {
   // Get the code stats data
-  const { data } = await axios.get<CodeStatsResponse>(
-    'https://codestats.net/api/users/jasonm4130'
-  );
+  const response = await fetch('https://codestats.net/api/users/jasonm4130');
+  const data = (await response.json()) as CodeStatsResponse;
 
   // Get the projects
   const projects = getFeaturedProjects();

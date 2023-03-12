@@ -23,10 +23,10 @@ The majority of the work for the plugin is done in the `gatsby-node.js` where we
 
 ### Getting the data
 
-The whole point of the plugin is to fetch the data for a user from CodeStats, to do this we use an axios get request:
+The whole point of the plugin is to fetch the data for a user from CodeStats, to do this we use an fetch get request:
 
 ```javascript
-const response = await axios.get(
+const response = await fetch(
   `https://codestats.net/api/users/${pluginOptions.user}`
 );
 ```
