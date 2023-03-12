@@ -1,7 +1,7 @@
 import React from 'react';
 import { PROJECTS_PATH } from '../../lib/consts';
 import getAllFrontmatter from '../../lib/getAllFrontmatter';
-import ProjectCard from '../../components/Projects/ProjectCard';
+import ProjectCard from '../../components/ProjectCard';
 import styles from './projects.module.scss';
 import { MarkdownFileContent } from '../../lib/interfaces';
 
