@@ -54,7 +54,7 @@ export default function About() {
     const timeInIndustry = nowDate.valueOf() - startingDate.valueOf();
     setInterval(
       () => setIndustryInEpoch(Date.now() - startingDate.valueOf()),
-      100
+      100,
     );
     const { days, weeks, months, years, decades } =
       getRedableTime(timeInIndustry);

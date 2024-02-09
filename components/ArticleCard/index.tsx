@@ -19,7 +19,7 @@ export default function ArticleCard({
 
   const dateFormatted = new Date(Date.parse(date)).toLocaleString(
     'en-GB',
-    dateOptions
+    dateOptions,
   );
 
   return (

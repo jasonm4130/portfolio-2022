@@ -13,7 +13,7 @@ export default function getAllMarkdown(documentsPath: string) {
 
   // Get the markdown and front matter for the documents
   const documents = files.map(async (file) =>
-    getFileMarkdown(path.join(documentsPath, file))
+    getFileMarkdown(path.join(documentsPath, file)),
   );
 
   return Promise.all(documents);

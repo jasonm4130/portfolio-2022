@@ -13,7 +13,7 @@ export default function sortByDate(itemsToSort: MarkdownFileContent[]) {
 
   // Sort the items based on date
   const sortedItems = itemsToSort.sort(
-    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+    (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
   );
 
   return sortedItems;

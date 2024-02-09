@@ -13,7 +13,7 @@ export default function getAllFrontmatter(documentsPath: string) {
 
   // Get the markdown and front matter for the documents
   const documents = files.map((file) =>
-    getFileFrontmatter(path.join(documentsPath, file))
+    getFileFrontmatter(path.join(documentsPath, file)),
   );
 
   return documents;

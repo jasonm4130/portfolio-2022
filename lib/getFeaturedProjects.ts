@@ -11,7 +11,7 @@ export default function getFeaturedProjects() {
 
   // Filter the projects so only the ones with feature = true are in the array
   const featuredProjects = projectData.filter(
-    (project) => project.featured === true
+    (project) => project.featured === true,
   );
 
   return featuredProjects;

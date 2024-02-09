@@ -21,11 +21,11 @@ interface ResponseData {
 function combineLanguages(
   languageNames: string[],
   newLanguageName: string,
-  languages: { name: string; xps: number; newXps: number }[]
+  languages: { name: string; xps: number; newXps: number }[],
 ) {
   // Get all of the languages as objects from the names
   const languagesToCombine = languages.filter((language) =>
-    languageNames.includes(language.name)
+    languageNames.includes(language.name),
   );
 
   let xpsCount = 0;
@@ -41,7 +41,7 @@ function combineLanguages(
 
   // Filter the array to exclude the now combined languages
   const filteredLanguagesArray = languages.filter(
-    (language) => !languageNames.includes(language.name)
+    (language) => !languageNames.includes(language.name),
   );
 
   return {
@@ -88,7 +88,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
           // eslint-disable-next-line camelcase
           newXps: new_xps,
         };
-      }
+      },
     );
 
     // Loop through each of the languages and combine them if they are similar, then add the combined languages to the combinedLanguage array
@@ -100,7 +100,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['JavaScript', 'JavaScript (JSX)'],
           'JavaScript',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -112,7 +112,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['TypeScript', 'TypeScript (JSX)'],
           'TypeScript',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -124,7 +124,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['Markdown', 'MDX', 'AsciiDoc'],
           'Markdown',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -136,7 +136,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['Sass', 'SCSS'],
           'SASS',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -152,7 +152,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['SilverStripe', 'PHP', 'Blade'],
           'PHP',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -170,7 +170,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         const { combinedLanguage, languages } = combineLanguages(
           ['nunjucks', 'Handlebars', 'Pug', 'HTML', 'njk'],
           'HTML',
-          languagesArray
+          languagesArray,
         );
 
         // Push the new combined language to the combined languages array
@@ -206,7 +206,7 @@ export default function Skills({ statsData }: { statsData: ResponseData }) {
         {combinedLanguagesArray.map(
           (language: { name: string; xps: number; newXps: number }) => (
             <SkillCard key={language.name} language={language} />
-          )
+          ),
         )}
       </div>
     </section>
