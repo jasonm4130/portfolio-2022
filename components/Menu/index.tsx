@@ -33,7 +33,7 @@ export default function Menu() {
 
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.logoLink}>
+      <Link href="/" className={styles.logoLink} aria-label="Go to home">
         <Logo className={styles.logo} />
       </Link>
       <ul className={`${styles.list} ${isOpen ? styles.listOpen : ''}`}>
@@ -64,6 +64,7 @@ export default function Menu() {
         className={styles.button}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Menu"
       >
         <MenuBurger isOpen={isOpen} />
       </button>
