@@ -1,0 +1,9 @@
+@import "../../styles/mixins.scss";
+
+.title {
+  @include section-title;
+}
+
+.intro {
+  @include section-intro;
+}

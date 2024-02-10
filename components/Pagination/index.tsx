@@ -1,64 +1,57 @@
 import React from 'react';
+import Link from 'next/link';
 import { usePagination, DOTS } from '../../lib/usePagination';
 import styles from './pagination.module.scss';
 
 export default function Pagination({
-  onPageChange,
-  totalCount,
+  pageRoute,
+  totalPages,
   siblingCount = 1,
   currentPage,
-  pageSize,
   className,
 }: {
-  onPageChange: (number) => void;
-  totalCount: number;
+  pageRoute: string;
+  totalPages: number;
   siblingCount?: number;
   currentPage: number;
-  pageSize: number;
   className?: string;
 }) {
   const paginationRange = usePagination({
     currentPage,
-    totalCount,
+    totalPages,
     siblingCount,
-    pageSize,
   });
 
   if (currentPage === 0 || paginationRange.length < 2) {
     return null;
   }
 
-  const onNext = () => {
-    onPageChange(currentPage + 1);
-  };
-
-  const onPrevious = () => {
-    onPageChange(currentPage - 1);
-  };
-
   const lastPage = paginationRange[paginationRange.length - 1];
   return (
     <nav className={`${styles.nav} ${className}`}>
       <ul className={styles.list}>
-        <li>
-          <button
-            onClick={onPrevious}
+        <li key="pagination-page-previous">
+          <Link
             type="button"
             className={styles.button}
-            disabled={currentPage === 1}
+            href={`${pageRoute}${currentPage - 1}`}
           >
             Previous
-          </button>
+          </Link>
         </li>
         {paginationRange.map((pageNumber: string | number) => {
           if (pageNumber === DOTS) {
-            return <li className={styles.dots}>&#8230;</li>;
+            return (
+              <li key="pagination-previous-dots" className={styles.dots}>
+                &#8230;
+              </li>
+            );
           }
 
           return (
-            <li>
-              <button
-                onClick={() => onPageChange(pageNumber)}
+            <li key={`pagination-page-${pageNumber}`}>
+              <Link
+                href={`${pageRoute}${pageNumber}`}
                 type="button"
                 className={`${styles.button} ${
                   pageNumber === currentPage ? styles.buttonCurrent : ''
@@ -66,19 +59,18 @@ export default function Pagination({
               >
                 <span className={styles.srOnly}>Go to </span>
                 {pageNumber}
-              </button>
+              </Link>
             </li>
           );
         })}
-        <li>
-          <button
-            onClick={onNext}
+        <li key="pagination-page-next">
+          <Link
+            href={`${pageRoute}${currentPage + 1}`}
             type="button"
             className={styles.button}
-            disabled={currentPage === lastPage}
           >
             Next
-          </button>
+          </Link>
         </li>
       </ul>
     </nav>

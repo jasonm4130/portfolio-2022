@@ -1,13 +1,4 @@
 @import "../../styles/breakpoints.scss";
-@import "../../styles/mixins.scss";
-
-.title {
-  @include section-title;
-}
-
-.intro {
-  @include section-intro;
-}
 
 .grid {
   display: grid;
